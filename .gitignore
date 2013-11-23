@@ -1,0 +1,7 @@
+.idea
+
+.htaccess
+
+wp-content/uploads/*
+
+wp-config.php
