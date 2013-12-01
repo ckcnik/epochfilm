@@ -25,4 +25,6 @@ function vkvp_register_settings() {
     register_setting( 'vkvp-settings-group', 'vkvp_expires_in', 'intval' );
     register_setting( 'vkvp-settings-group', 'vkvp_kinopisk_login', 'strval' );
     register_setting( 'vkvp-settings-group', 'vkvp_kinopisk_password', 'strval' );
+    register_setting( 'vkvp-settings-group', 'vkvp_imdb_login', 'strval' );
+    register_setting( 'vkvp-settings-group', 'vkvp_imdb_password', 'strval' );
 }

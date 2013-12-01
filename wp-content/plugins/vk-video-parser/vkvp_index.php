@@ -71,6 +71,42 @@ if (!$error && isset($_POST['films'])) {
             curl_close($curl);
         }
 
+        // авторизация на imdb
+        if ($curl = curl_init()) {
+            curl_setopt($curl, CURLOPT_URL, "https://secure.imdb.com/oauth/login?origurl=http://www.imdb.com/&show_imdb_panel=1");
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36");
+            curl_setopt($curl, CURLOPT_AUTOREFERER, true);
+            curl_setopt($curl, CURLOPT_COOKIEJAR, __DIR__ . '/cookies.txt');
+            curl_setopt($curl, CURLOPT_COOKIEFILE, __DIR__ . '/cookies.txt');
+            $imdbLoginForm = curl_exec($curl);
+            curl_close($curl);
+
+            $document = phpQuery::newDocumentHTML($imdbLoginForm);
+            $pq = pq($document);
+            $hiddenFieldName = $pq->find('#imdb-login input[type="hidden"]')->attr('name');
+            $hiddenFieldValue = $pq->find('#imdb-login input[type="hidden"]')->val();
+
+            if ($curl = curl_init()) {
+                curl_setopt($curl, CURLOPT_URL, "https://secure.imdb.com/oauth/login?origurl=http://www.imdb.com/&show_imdb_panel=1");
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+                curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36");
+                curl_setopt($curl, CURLOPT_AUTOREFERER, true);
+                curl_setopt($curl, CURLOPT_POST, true);
+                curl_setopt($curl, CURLOPT_POSTFIELDS, array(
+                    'login' => get_option('vkvp_imdb_login'),
+                    'password' => get_option('vkvp_imdb_password'),
+                    $hiddenFieldName => $hiddenFieldValue,
+                ));
+                curl_setopt($curl, CURLOPT_COOKIEJAR, __DIR__ . '/cookies.txt');
+                curl_setopt($curl, CURLOPT_COOKIEFILE, __DIR__ . '/cookies.txt');
+                $imdbLogin = curl_exec($curl);
+                curl_close($curl);
+            }
+        }
+
         foreach($films as $film) {
             $film = trim($film);
             $log .= "\t'{$film}': ";
@@ -145,7 +181,6 @@ if (!$error && isset($_POST['films'])) {
                                 foreach($actorListLi as $li) {
                                     $actors[] = pq($li)->text();
                                 }
-                                print_r($actors);
 
                                 $engFilmName = $pq->find('#headerFilm span')->text();
                             }
@@ -185,6 +220,8 @@ if (!$error && isset($_POST['films'])) {
                                     $storyline = $pq->find('#titleStoryLine div[itemprop="description"]');
                                     pq($storyline)->find('.nobr')->remove();
                                     $storyline = pq($storyline)->text();
+
+                                    $ratingPluginHTML = $pq->find('#ratingPluginHTML textarea')->val();
                                 }
                             }
                             // </imdb>

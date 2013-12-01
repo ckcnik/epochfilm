@@ -20,6 +20,14 @@
                 <th scope="row">Пароль на кинопоиске:</th>
                 <td><input type="password" name="vkvp_kinopisk_password" value="<?php echo get_option('vkvp_kinopisk_password'); ?>" /></td>
             </tr>
+            <tr valign="top">
+                <th scope="row">Логин на IMDB:</th>
+                <td><input type="text" name="vkvp_imdb_login" value="<?php echo get_option('vkvp_imdb_login'); ?>" /></td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Пароль на IMDB:</th>
+                <td><input type="password" name="vkvp_imdb_password" value="<?php echo get_option('vkvp_imdb_password'); ?>" /></td>
+            </tr>
         </table>
 
         <p class="submit">
