@@ -105,11 +105,17 @@ if (!$error && isset($_POST['films'])) {
                                 $img = $pq->find('#photoBlock .popupBigImage');
                                 if ($img->length) {
                                     $imgOnclick = $img->attr('onclick');
-                                    preg_match('/^.*?\(\'(.*)\'\).*$/', $imgOnclick, $match);
+                                    preg_match('/^.*?\(\'(.*film_big\/(.*))\'\).*$/', $imgOnclick, $match);
                                     $imgSrc = isset($match[1]) ? $match[1] : '';
                                     $imgSrc = str_replace('st', 'st-ua', $imgSrc);
+                                    $imgFileName = $match[2];
+
+                                    $uploadDir = wp_upload_dir();
+                                    $uploadDir = $uploadDir['path'];
 
                                     $curl = curl_init();
+                                    $file = fopen($uploadDir . '/' . $imgFileName, 'wb+');
+
                                     curl_setopt($curl, CURLOPT_URL, $imgSrc);
                                     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                                     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
@@ -117,24 +123,12 @@ if (!$error && isset($_POST['films'])) {
                                     curl_setopt($curl, CURLOPT_AUTOREFERER, true);
                                     curl_setopt($curl, CURLOPT_COOKIEJAR, __DIR__ . '/cookies.txt');
                                     curl_setopt($curl, CURLOPT_COOKIEFILE, __DIR__ . '/cookies.txt');
-                                    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-                                        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-                                        'Accept-Encoding: gzip,deflate,sdch',
-                                        'Accept-Language: ru,uk;q=0.8',
-                                        'Cache-Control: max-age=0',
-                                        'Connection: keep-alive',
-                                        'DNT: 1',
-                                        'Host: epochfilm.local',
-                                        'Content-Type: image/jpeg',
-                                    ));
+                                    curl_setopt($curl, CURLOPT_FILE, $file);
                                     $image = curl_exec($curl);
                                     curl_close($curl);
-                                    if (!empty($image)) {
-//                                        echo $image;
-//                                        $file = fopen(, 'w+');
-                                    }
 
-                                    echo '<img src="' . $imgSrc . '"/>';
+                                    fclose($file);
+                                    chmod($uploadDir . '/' . $imgFileName, 0664);
                                 }
                             }
 
