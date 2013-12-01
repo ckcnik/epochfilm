@@ -51,8 +51,8 @@ if (!$error && isset($_POST['films'])) {
         $log .= "Список получен\n";
         $url_vk_video = "https://api.vk.com/method/video.search?access_token={$access_token}";
 
+        // авторизация на kinopoisk
         if ($curl = curl_init()) {
-            // авторизация
             curl_setopt($curl, CURLOPT_URL, "http://www.kinopoisk.ru/login/");
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
@@ -98,8 +98,9 @@ if (!$error && isset($_POST['films'])) {
                                 curl_setopt($curl, CURLOPT_COOKIEFILE, __DIR__ . '/cookies.txt');
                                 $kinopoiskFilmPage = curl_exec($curl);
                                 curl_close($curl);
+                                $kinopoiskFilmPage = iconv("CP1251", "UTF-8", $kinopoiskFilmPage);
 
-                                $document = phpQuery::newDocumentHTML($kinopoiskFilmPage);
+                                $document = phpQuery::newDocumentHTML($kinopoiskFilmPage, 'cp1251');
                                 $pq = pq($document);
 
                                 $img = $pq->find('#photoBlock .popupBigImage');
@@ -129,6 +130,12 @@ if (!$error && isset($_POST['films'])) {
 
                                     fclose($file);
                                     chmod($uploadDir . '/' . $imgFileName, 0664);
+                                }
+
+                                $infoTableTr = $pq->find('#infoTable tr');
+                                foreach($infoTableTr as $tr) {
+                                    pq($tr)->find('td.type')->text(); // param name
+                                    pq($tr)->find('td')->eq(1)->text(); // param value
                                 }
                             }
 
