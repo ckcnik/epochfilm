@@ -87,6 +87,8 @@ if (!$error && isset($_POST['films'])) {
                         $document = phpQuery::newDocumentHTML($player);
                         $pq = pq($document);
                         if ($pq->find('object')->length) {
+                            $engFilmName = '';
+
                             // <kinopoisk>
                             if ($curl = curl_init()) {
                                 curl_setopt($curl, CURLOPT_URL, "http://www.kinopoisk.ru/index.php?first=yes&kp_query=" . urlencode($film));
@@ -137,12 +139,52 @@ if (!$error && isset($_POST['films'])) {
                                     pq($tr)->find('td.type')->text(); // param name
                                     pq($tr)->find('td')->eq(1)->text(); // param value
                                 }
-                            }
 
-                            sleep(1);
+                                $engFilmName = $pq->find('#headerFilm span')->text();
+                            }
                             // </kinopoisk>
 
-//                            echo '<iframe width="700" height="500" src="' . $video['player'] . '"></iframe>';
+                            // <imdb>
+                            if ($curl = curl_init()) {
+                                curl_setopt($curl, CURLOPT_URL, "http://www.imdb.com/find?s=tt&q=" . urlencode($engFilmName));
+                                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                                curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+                                curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36");
+                                curl_setopt($curl, CURLOPT_AUTOREFERER, true);
+                                curl_setopt($curl, CURLOPT_COOKIEJAR, __DIR__ . '/cookies.txt');
+                                curl_setopt($curl, CURLOPT_COOKIEFILE, __DIR__ . '/cookies.txt');
+                                $imdbSearchPage = curl_exec($curl);
+                                curl_close($curl);
+
+                                $document = phpQuery::newDocumentHTML($imdbSearchPage);
+                                $pq = pq($document);
+                                $firstSearchResultUrl = $pq->find('table.findList tr')->eq(0)->find('.result_text a')->attr('href');
+
+                                $imdbFilmUrl = 'http://www.imdb.com' . $firstSearchResultUrl;
+
+                                if ($curl = curl_init()) {
+                                    curl_setopt($curl, CURLOPT_URL, $imdbFilmUrl);
+                                    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                                    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+                                    curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36");
+                                    curl_setopt($curl, CURLOPT_AUTOREFERER, true);
+                                    curl_setopt($curl, CURLOPT_COOKIEJAR, __DIR__ . '/cookies.txt');
+                                    curl_setopt($curl, CURLOPT_COOKIEFILE, __DIR__ . '/cookies.txt');
+                                    $imdbFilmPage = curl_exec($curl);
+                                    curl_close($curl);
+
+                                    $document = phpQuery::newDocumentHTML($imdbFilmPage);
+                                    $pq = pq($document);
+                                    $storyline = $pq->find('#titleStoryLine div[itemprop="description"]');
+                                    pq($storyline)->find('.nobr')->remove();
+                                    $storyline = pq($storyline)->text();
+                                }
+                            }
+                            // </imdb>
+
+                            // echo '<iframe width="700" height="500" src="' . $video['player'] . '"></iframe>';
+
+                            sleep(1);
                             break;
                         }
                     }
