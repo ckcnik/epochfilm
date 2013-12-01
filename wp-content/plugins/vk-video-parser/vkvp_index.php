@@ -140,6 +140,13 @@ if (!$error && isset($_POST['films'])) {
                                     pq($tr)->find('td')->eq(1)->text(); // param value
                                 }
 
+                                $actorListLi = $pq->find('#actorList ul')->eq(0)->find('li');
+                                $actors = array();
+                                foreach($actorListLi as $li) {
+                                    $actors[] = pq($li)->text();
+                                }
+                                print_r($actors);
+
                                 $engFilmName = $pq->find('#headerFilm span')->text();
                             }
                             // </kinopoisk>
