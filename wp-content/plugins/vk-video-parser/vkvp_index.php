@@ -117,13 +117,28 @@ if (!$error && isset($_POST['films'])) {
 
             if ($response) {
                 $log .= count($response) . "\n";
+
                 foreach($response as $video) {
                     if ($video) {
                         $player = file_get_contents($video['player']);
                         $document = phpQuery::newDocumentHTML($player);
                         $pq = pq($document);
-                        if ($pq->find('object')->length) {
-                            $engFilmName = '';
+
+                        if ($pq->find('object')->length) { // если найден плеер
+                            $kinopoisk = array(
+                                'id' => '',
+                                'imagePath' => '',
+                                'imageFileName' => '',
+                                'params' => '',
+                                'actors' => '',
+                                'ruName' => '',
+                                'engName' => '',
+                            );
+                            $imdb = array(
+                                'storyline' => '',
+                                'ratingPluginHTML' => '',
+                            );
+                            $playerUrl = $video['player'];
 
                             // <kinopoisk>
                             if ($curl = curl_init()) {
@@ -141,6 +156,7 @@ if (!$error && isset($_POST['films'])) {
                                 $document = phpQuery::newDocumentHTML($kinopoiskFilmPage, 'cp1251');
                                 $pq = pq($document);
 
+                                // получение и сохранение изображений
                                 $img = $pq->find('#photoBlock .popupBigImage');
                                 if ($img->length) {
                                     $imgOnclick = $img->attr('onclick');
@@ -149,7 +165,13 @@ if (!$error && isset($_POST['films'])) {
                                     $imgSrc = str_replace('st', 'st-ua', $imgSrc);
                                     $imgFileName = $match[2];
 
+                                    $kinopoiskFilmId = explode('.', $imgFileName);
+                                    $kinopoisk['id'] = $kinopoiskFilmId[0];
+
                                     $uploadDir = wp_upload_dir();
+                                    $kinopoisk['imagePath'] = '/wp-content/uploads' . $uploadDir['subdir'];
+                                    $kinopoisk['imageFileName'] = $imgFileName;
+
                                     $uploadDir = $uploadDir['path'];
 
                                     $curl = curl_init();
@@ -170,25 +192,28 @@ if (!$error && isset($_POST['films'])) {
                                     chmod($uploadDir . '/' . $imgFileName, 0664);
                                 }
 
+                                // Параметры фильма
                                 $infoTableTr = $pq->find('#infoTable tr');
                                 foreach($infoTableTr as $tr) {
-                                    pq($tr)->find('td.type')->text(); // param name
-                                    pq($tr)->find('td')->eq(1)->text(); // param value
+                                    $kinopoisk['params'][pq($tr)->find('td.type')->text()] = pq($tr)->find('td')->eq(1)->text();
                                 }
 
+                                // Главные роли
                                 $actorListLi = $pq->find('#actorList ul')->eq(0)->find('li');
-                                $actors = array();
                                 foreach($actorListLi as $li) {
-                                    $actors[] = pq($li)->text();
+                                    $kinopoisk['actors'][] = pq($li)->text();
                                 }
 
-                                $engFilmName = $pq->find('#headerFilm span')->text();
+                                // Название
+                                $kinopoisk['ruName'] = $pq->find('#headerFilm h1')->text();
+                                $kinopoisk['engName'] = $pq->find('#headerFilm span')->text();
                             }
                             // </kinopoisk>
 
                             // <imdb>
                             if ($curl = curl_init()) {
-                                curl_setopt($curl, CURLOPT_URL, "http://www.imdb.com/find?s=tt&q=" . urlencode($engFilmName));
+                                // Получение ссылки на странцу фильма
+                                curl_setopt($curl, CURLOPT_URL, "http://www.imdb.com/find?s=tt&q=" . urlencode($kinopoisk['engName']));
                                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                                 curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
                                 curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36");
@@ -201,10 +226,10 @@ if (!$error && isset($_POST['films'])) {
                                 $document = phpQuery::newDocumentHTML($imdbSearchPage);
                                 $pq = pq($document);
                                 $firstSearchResultUrl = $pq->find('table.findList tr')->eq(0)->find('.result_text a')->attr('href');
-
                                 $imdbFilmUrl = 'http://www.imdb.com' . $firstSearchResultUrl;
 
                                 if ($curl = curl_init()) {
+                                    // Получение информации о фильме
                                     curl_setopt($curl, CURLOPT_URL, $imdbFilmUrl);
                                     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                                     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
@@ -217,16 +242,21 @@ if (!$error && isset($_POST['films'])) {
 
                                     $document = phpQuery::newDocumentHTML($imdbFilmPage);
                                     $pq = pq($document);
+
+                                    // Сюжет
                                     $storyline = $pq->find('#titleStoryLine div[itemprop="description"]');
                                     pq($storyline)->find('.nobr')->remove();
-                                    $storyline = pq($storyline)->text();
+                                    $imdb['storyline'] = pq($storyline)->text();
 
-                                    $ratingPluginHTML = $pq->find('#ratingPluginHTML textarea')->val();
+                                    // Код рейтинга
+                                    $imdb['ratingPluginHTML'] = $pq->find('#ratingPluginHTML textarea')->val();
                                 }
                             }
                             // </imdb>
 
-                            // echo '<iframe width="700" height="500" src="' . $video['player'] . '"></iframe>';
+                            if ($kinopoisk['ruName']) {
+
+                            }
 
                             sleep(1);
                             break;
