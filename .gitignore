@@ -7,3 +7,4 @@ wp-content/plugins/vk-video-parser/cookies.txt
 wp-content/uploads/*
 
 wp-config.php
+/logs/
