@@ -1,30 +1,63 @@
 <?php while (have_posts()) : the_post(); ?>
+  <?php
+    $custom_fields = get_post_custom($id);
+  ?>
   <article <?php post_class(); ?>>
-      <div class="fp-screen">сюда лоадим плеер для вконтакта</div>
+      <div class="fp-screen">
+          <iframe src="<?= $custom_fields['vk_player_url'][0]?>&hd=3" frameborder="0"></iframe>
+      </div>
       <div class="details" >
           <div id="left-column-details" class="left-column-details">
               <div class="details-header">
-                  <h3><?php the_title(); ?></h3>
+                  <h3><?= $custom_fields['eng_name'][0] ?></h3>
               </div>
               <div class="content-wrapper-details">
                   <div class="details-poster">
-                      <img width="183" height="259" src="./Watch Dream of a Warrior Online Free   Watching Full Movies Online_files/1061-10271-000_EN.jpg" alt="тут оображаем постер киношки" class="box-shadow" itemprop="image">
+                      <img width="183" height="259" src="<?= $custom_fields['image_path'][0] ?>" alt="?php the_title(); ?>" class="box-shadow">
                   </div>
                   <div class="description-film-container">
                       <div class="header-comments">
                           <h1><?php the_title(); ?></h1>
                           <span>Comments(number)</span>
-                          <?php get_template_part('templates/entry-meta'); ?>
                       </div>
                       <div class="film-history">
-                          <ul>
-                              <li>Korea, Republic of | 2001 | 108 min. | Rated: 1</li>
-                              <li>Languages available: EN, KO (EN subtitles), KO</li>
-                              <li>Original Title: Dream of a Warrior</li>
-                              <li>Genre: Action & Adventure , Korean Drama</li>
-                              <li>Director: Hee-joon Park</li>
-                              <li>Cast: Eun-hye Park , Leon Lai Ming , Na-yeong Lee</li>
-                          </ul>
+                          <table id="">
+                              <thead></thead>
+                              <tbody>
+                              <tr>
+                                  <td>Рейтинг</td>
+                                  <td><?= $custom_fields['rating_plugin_HTML'][0] ?></td>
+                              </tr>
+                              <tr>
+                                  <td>Год</td>
+                                  <td><?= $custom_fields['time'][0] ?></td>
+                              </tr>
+                              <tr>
+                                  <td>Страна</td>
+                                  <td><?= $custom_fields['time'][0] ?></td>
+                              </tr>
+                              <tr>
+                                  <td>Жанр</td>
+                                  <td><?= $custom_fields['time'][0] ?></td>
+                              </tr>
+                              <tr>
+                                  <td>Режиссер</td>
+                                  <td><?= $custom_fields['time'][0] ?></td>
+                              </tr>
+                                <tr>
+                                    <td>Возраст</td>
+                                    <td><?= $custom_fields['age'][0] ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Время воспроизведения</td>
+                                    <td><?= $custom_fields['time'][0] ?></td>
+                                </tr>
+                              <tr>
+                                  <td><?php get_template_part('templates/entry-meta'); ?></td>
+                                  <td><?= $custom_fields['time'][0] ?></td>
+                              </tr>
+                              </tbody>
+                          </table>
                       </div>
                       <div id="film-description" class="film-description">
                           <div id="film-content">
@@ -42,32 +75,32 @@
               <div class="wrapper-related-movies">
                   <div class="related-movie">
                       <a href="http://www.viewster.com/movie/1055-10791-000/4-weeks-of-sunshine">
-                          <img alt="4 Weeks of Sunshine" src="./Watch Dream of a Warrior Online Free   Watching Full Movies Online_files/1055-10791-000_EN_S.jpg" width="90" class="cover element-box-shadow">
+                          <img alt="4 Weeks of Sunshine" src="/wp-content/uploads/2013/12/1919.jpg" width="90" height="135" class="box-shadow">
                       </a>
                   </div>
                   <div class="related-movie">
                       <a href="http://www.viewster.com/movie/1055-10791-000/4-weeks-of-sunshine">
-                          <img alt="4 Weeks of Sunshine" src="./Watch Dream of a Warrior Online Free   Watching Full Movies Online_files/1055-10791-000_EN_S.jpg" width="90" class="cover element-box-shadow">
+                          <img alt="4 Weeks of Sunshine" src="/wp-content/uploads/2013/12/111.jpg" width="90" height="135" class="box-shadow">
                       </a>
                   </div>
                   <div class="related-movie">
                       <a href="http://www.viewster.com/movie/1055-10791-000/4-weeks-of-sunshine">
-                          <img alt="4 Weeks of Sunshine" src="./Watch Dream of a Warrior Online Free   Watching Full Movies Online_files/1055-10791-000_EN_S.jpg" width="90" class="cover element-box-shadow">
+                          <img alt="4 Weeks of Sunshine" src="/wp-content/uploads/2013/12/2222.jpg" width="90" height="135" class="box-shadow">
                       </a>
                   </div>
                   <div class="related-movie">
                       <a href="http://www.viewster.com/movie/1055-10791-000/4-weeks-of-sunshine">
-                          <img alt="4 Weeks of Sunshine" src="./Watch Dream of a Warrior Online Free   Watching Full Movies Online_files/1055-10791-000_EN_S.jpg" width="90" class="cover element-box-shadow">
+                          <img alt="4 Weeks of Sunshine" src="/wp-content/uploads/2013/12/333.jpg" width="90" height="135" class="box-shadow">
                       </a>
                   </div>
                   <div class="related-movie">
                       <a href="http://www.viewster.com/movie/1055-10791-000/4-weeks-of-sunshine">
-                          <img alt="4 Weeks of Sunshine" src="./Watch Dream of a Warrior Online Free   Watching Full Movies Online_files/1055-10791-000_EN_S.jpg" width="90" class="cover element-box-shadow">
+                          <img alt="4 Weeks of Sunshine" src="/wp-content/uploads/2013/12/444.jpg" width="90" height="135" class="box-shadow">
                       </a>
                   </div>
                   <div class="related-movie">
                       <a href="http://www.viewster.com/movie/1055-10791-000/4-weeks-of-sunshine">
-                          <img alt="4 Weeks of Sunshine" src="./Watch Dream of a Warrior Online Free   Watching Full Movies Online_files/1055-10791-000_EN_S.jpg" width="90" class="cover element-box-shadow">
+                          <img alt="4 Weeks of Sunshine" src="/wp-content/uploads/2013/12/666.jpg" width="90" height="135" class="box-shadow">
                       </a>
                   </div>
                   <div class="clear"></div>

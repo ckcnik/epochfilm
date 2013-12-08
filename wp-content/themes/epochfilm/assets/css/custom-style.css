@@ -4,7 +4,11 @@ body {
 .fp-screen {
     width: 1140px;
     height: 542px;
-    background-color: #000000;
+    /*background-color: #000000;*/
+}
+.fp-screen iframe {
+    width: 1140px;
+    height: 542px;
 }
 .details {
     margin-top: 10px;
@@ -45,6 +49,9 @@ body {
     float: right;
     margin-top: 15px;
 }
+.description-film-container .show-more:hover {
+    cursor: pointer;
+}
 .details-header {
     background-color: #131211;
 }
@@ -68,13 +75,11 @@ body {
     padding: 10px 20px 10px 0;
     width: 600px;
 }
-.film-history ul {
-    list-style: none;
-    padding: 0;
-}
 .film-description {
-    height: 80px;
     overflow: hidden;
+}
+.film-history table {
+    font-size: 12px;
 }
 .wrapper-related-movies {
     margin: 5px 10px;

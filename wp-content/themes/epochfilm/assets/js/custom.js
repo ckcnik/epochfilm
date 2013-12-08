@@ -1,5 +1,6 @@
 $( document ).ready(function() {
-    var heightDescriptionFilm = 80;
+    var heightDescriptionFilm = 40;
+    $('.film-description').height(heightDescriptionFilm);
     correctHeightDetailsBlock();
 
     $('#expand-film-description').on('click', function() {
