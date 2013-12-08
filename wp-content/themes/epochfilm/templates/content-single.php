@@ -4,7 +4,7 @@
   ?>
   <article <?php post_class(); ?>>
       <div class="fp-screen">
-          <iframe src="<?= $custom_fields['vk_player_url'][0]?>&hd=3" frameborder="0"></iframe>
+          <iframe src="<?= $custom_fields['vk_player_url'][0]?>" frameborder="0"></iframe>
       </div>
       <div class="details" >
           <div id="left-column-details" class="left-column-details">
