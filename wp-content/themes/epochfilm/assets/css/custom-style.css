@@ -1,7 +1,91 @@
+body {
+    color: #f2ac13;;
+}
 .fp-screen {
     width: 1140px;
     height: 542px;
     background-color: #000000;
-    /*top: 0;*/
-    /*z-index: 0;*/
+}
+.details {
+    margin-top: 10px;
+}
+.left-column-details {
+    float: left;
+    background-color: #1f1f1f;
+    width: 71%;
+    min-height: 336px;
+}
+.right-column-details {
+    float: right;
+    background-color: #1f1f1f;
+    width: 28.1%;
+}
+.left-column-details h3,
+.right-column-details h3 {
+    margin: 0;
+    padding: 12px 10px;
+    font-size: 12px;
+}
+.details-poster img.box-shadow {
+    -moz-box-shadow: 1px 2px 5px #131211;
+    -webkit-box-shadow: 1px 2px 5px #131211;
+    box-shadow: 1px 2px 5px #131211;
+}
+.details-poster {
+    padding: 0 10px 20px 10px;
+}
+
+.details-poster,
+.description-film-container
+{
+    float: left;
+    color: #b1a99c;
+}
+.description-film-container .show-more {
+    float: right;
+    margin-top: 15px;
+}
+.details-header {
+    background-color: #131211;
+}
+.header-comments h1 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+.header-comments {
+    position: relative;
+    font-weight: bold;
+}
+.header-comments span {
+    position: absolute;
+    right: 0;
+    top: -2px;
+}
+.clear {
+    clear: both;
+}
+.description-film-container {
+    padding: 10px 20px 10px 0;
+    width: 600px;
+}
+.film-history ul {
+    list-style: none;
+    padding: 0;
+}
+.film-description {
+    height: 80px;
+    overflow: hidden;
+}
+.wrapper-related-movies {
+    margin: 5px 10px;
+}
+.related-movie {
+    width: 90px;
+    margin: 2px 5px;
+    float: left;
+    position: relative;
+    height: 141px;
+}
+.related-movie a {
+    display: block;
 }
