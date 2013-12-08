@@ -26,7 +26,7 @@ body {
     padding: 12px 10px;
     font-size: 12px;
 }
-.details-poster img.box-shadow {
+.box-shadow {
     -moz-box-shadow: 1px 2px 5px #131211;
     -webkit-box-shadow: 1px 2px 5px #131211;
     box-shadow: 1px 2px 5px #131211;
@@ -88,4 +88,13 @@ body {
 }
 .related-movie a {
     display: block;
+}
+#comments-to-film {
+    padding: 10px;
+    margin: 10px auto;
+    background-color: #120f0f;
+}
+
+.wrapper-comments {
+    background-color: #1E1E1E;
 }
