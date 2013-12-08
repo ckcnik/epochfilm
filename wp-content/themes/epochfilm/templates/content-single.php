@@ -13,7 +13,7 @@
               </div>
               <div class="content-wrapper-details">
                   <div class="details-poster">
-                      <img width="183" height="259" src="<?= $custom_fields['image_path'][0] ?>" alt="?php the_title(); ?>" class="box-shadow">
+                      <img width="183" height="259" src="<?= $custom_fields['image_path'][0] ?>" alt="<?php the_title(); ?>" class="box-shadow">
                   </div>
                   <div class="description-film-container">
                       <div class="header-comments">
