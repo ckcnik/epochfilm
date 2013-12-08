@@ -24,7 +24,7 @@
                           <table id="">
                               <thead></thead>
                               <tbody>
-                              <tr>
+                              <tr id="ratingImDb">
                                   <td>Рейтинг</td>
                                   <td><?= $custom_fields['rating_plugin_HTML'][0] ?></td>
                               </tr>

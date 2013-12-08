@@ -99,7 +99,9 @@ body {
     margin: 10px auto;
     background-color: #120f0f;
 }
-
 .wrapper-comments {
     background-color: #1E1E1E;
+}
+#ratingImDb {
+    height: 42px;
 }
