@@ -18,16 +18,12 @@
                   <div class="description-film-container">
                       <div class="header-comments">
                           <h1><?php the_title(); ?></h1>
-                          <span>Comments(number)</span>
+                          <div id="ratingImDb"><?= $custom_fields['rating_plugin_HTML'][0] ?></div>
                       </div>
                       <div class="film-history">
                           <table id="">
                               <thead></thead>
                               <tbody>
-                              <tr id="ratingImDb">
-                                  <td>Рейтинг</td>
-                                  <td><?= $custom_fields['rating_plugin_HTML'][0] ?></td>
-                              </tr>
                               <tr>
                                   <td>Год</td>
                                   <td><?= $custom_fields['time'][0] ?></td>
@@ -110,7 +106,11 @@
       </div>
       <div id="comments-to-film" class="box-shadow">
           <div class="wrapper-comments">
-              сюда впариваем вконтактокомменты
+			  <!-- Put this div tag to the place, where the Comments block will be -->
+			  <div id="vk_comments"></div>
+			  <script type="text/javascript">
+				  VK.Widgets.Comments("vk_comments", {limit: 10, width: "1120", attach: "*"});
+			  </script>
           </div>
       </div>
     <footer>

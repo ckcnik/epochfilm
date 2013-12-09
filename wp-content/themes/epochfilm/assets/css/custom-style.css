@@ -1,107 +1,130 @@
 body {
-    color: #f2ac13;;
+	color: #f2ac13;;
 }
+
 .fp-screen {
-    width: 1140px;
-    height: 542px;
-    /*background-color: #000000;*/
+	width: 1140px;
+	height: 542px;
+	/*background-color: #000000;*/
 }
+
 .fp-screen iframe {
-    width: 1140px;
-    height: 542px;
+	width: 1140px;
+	height: 542px;
 }
+
 .details {
-    margin-top: 10px;
+	margin-top: 10px;
 }
+
 .left-column-details {
-    float: left;
-    background-color: #1f1f1f;
-    width: 71%;
-    min-height: 336px;
+	float: left;
+	background-color: #1f1f1f;
+	width: 71%;
+	min-height: 336px;
 }
+
 .right-column-details {
-    float: right;
-    background-color: #1f1f1f;
-    width: 28.1%;
+	float: right;
+	background-color: #1f1f1f;
+	width: 28.1%;
 }
+
 .left-column-details h3,
 .right-column-details h3 {
-    margin: 0;
-    padding: 12px 10px;
-    font-size: 12px;
+	margin: 0;
+	padding: 12px 10px;
+	font-size: 12px;
 }
+
 .box-shadow {
-    -moz-box-shadow: 1px 2px 5px #131211;
-    -webkit-box-shadow: 1px 2px 5px #131211;
-    box-shadow: 1px 2px 5px #131211;
+	-moz-box-shadow: 1px 2px 5px #131211;
+	-webkit-box-shadow: 1px 2px 5px #131211;
+	box-shadow: 1px 2px 5px #131211;
 }
+
 .details-poster {
-    padding: 0 10px 20px 10px;
+	padding: 0 10px 20px 10px;
 }
 
 .details-poster,
-.description-film-container
-{
-    float: left;
-    color: #b1a99c;
-}
-.description-film-container .show-more {
-    float: right;
-    margin-top: 15px;
-}
-.description-film-container .show-more:hover {
-    cursor: pointer;
-}
-.details-header {
-    background-color: #131211;
-}
-.header-comments h1 {
-    font-size: 16px;
-    margin-top: 10px;
-}
-.header-comments {
-    position: relative;
-    font-weight: bold;
-}
-.header-comments span {
-    position: absolute;
-    right: 0;
-    top: -2px;
-}
-.clear {
-    clear: both;
-}
 .description-film-container {
-    padding: 10px 20px 10px 0;
-    width: 600px;
+	float: left;
+	color: #b1a99c;
 }
+
+.description-film-container .show-more {
+	float: right;
+	margin-top: 15px;
+}
+
+.description-film-container .show-more:hover {
+	cursor: pointer;
+}
+
+.details-header {
+	background-color: #131211;
+}
+
+.header-comments h1 {
+	font-size: 16px;
+	margin-top: 10px;
+}
+
+.header-comments {
+	position: relative;
+	font-weight: bold;
+}
+
+.header-comments div#ratingImDb {
+	position: absolute;
+	right: 0;
+	top: -10px;
+}
+
+.clear {
+	clear: both;
+}
+
+.description-film-container {
+	padding: 10px 20px 10px 0;
+	width: 600px;
+}
+
 .film-description {
-    overflow: hidden;
+	overflow: hidden;
 }
+
 .film-history table {
-    font-size: 12px;
+	font-size: 12px;
 }
+
 .wrapper-related-movies {
-    margin: 5px 10px;
+	margin: 5px 10px;
 }
+
 .related-movie {
-    width: 90px;
-    margin: 2px 5px;
-    float: left;
-    position: relative;
-    height: 141px;
+	width: 90px;
+	margin: 2px 5px;
+	float: left;
+	position: relative;
+	height: 141px;
 }
+
 .related-movie a {
-    display: block;
+	display: block;
 }
+
 #comments-to-film {
-    padding: 10px;
-    margin: 10px auto;
-    background-color: #120f0f;
+	padding: 10px;
+	margin: 10px auto;
+	background-color: #120f0f;
 }
+
 .wrapper-comments {
-    background-color: #1E1E1E;
+	background-color: #1E1E1E;
 }
+
 #ratingImDb {
-    height: 42px;
+	height: 42px;
 }

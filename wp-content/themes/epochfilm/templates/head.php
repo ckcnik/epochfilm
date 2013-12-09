@@ -9,4 +9,11 @@
   <?php wp_head(); ?>
 
   <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo home_url(); ?>/feed/">
+
+	<!-- Put this script tag to the <head> of your page -->
+	<script type="text/javascript" src="//vk.com/js/api/openapi.js?105"></script>
+
+	<script type="text/javascript">
+		VK.init({apiId: 4047846, onlyWidgets: true});
+	</script>
 </head>
