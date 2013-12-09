@@ -4,6 +4,7 @@
 	?>
 	<article <?php post_class(); ?>>
 		<div class="fp-screen">
+			<div class="playing details-header">Воспроизведение видео: <h2><?php the_title(); ?></h2></div>
 			<iframe src="<?= $custom_fields['vk_player_url'][0] ?>" frameborder="0"></iframe>
 		</div>
 		<div class="details">

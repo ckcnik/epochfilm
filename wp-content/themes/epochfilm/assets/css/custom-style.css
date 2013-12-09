@@ -4,7 +4,7 @@ body {
 
 .fp-screen {
 	width: 1140px;
-	height: 542px;
+	height: 572px;
 	/*background-color: #000000;*/
 }
 
@@ -141,4 +141,13 @@ body {
 
 #ratingImDb {
 	height: 42px;
+}
+
+.playing {
+	padding: 5px 5px;
+}
+.playing h2 {
+	font-size: 12px;
+	display: inline-block;
+	margin: 0;
 }
