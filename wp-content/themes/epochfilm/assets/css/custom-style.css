@@ -37,6 +37,10 @@ body {
 	font-size: 12px;
 }
 
+.left-column-details h3 {
+	display: inline-block;
+}
+
 .box-shadow {
 	-moz-box-shadow: 1px 2px 5px #131211;
 	-webkit-box-shadow: 1px 2px 5px #131211;
@@ -96,7 +100,11 @@ body {
 }
 
 .film-history table {
-	font-size: 12px;
+	font-size: 14px;
+}
+
+.film-history table td {
+	padding-right: 15px;
 }
 
 .wrapper-related-movies {
