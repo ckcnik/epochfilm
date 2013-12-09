@@ -37,8 +37,14 @@ body {
 	font-size: 12px;
 }
 
-.left-column-details h3 {
+.left-column-details h3,
+.left-column-details div#socials {
 	display: inline-block;
+}
+
+.left-column-details div#socials {
+	float: right;
+	margin: 5px 5px;
 }
 
 .box-shadow {
