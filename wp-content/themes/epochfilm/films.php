@@ -1,3 +1,12 @@
+<?php
+/*
+Template Name: Films Template
+*/
+?>
+<div class="sub-menu">
+
+</div>
+
 <div class="widget-popular">
 	<h3 class="widget-title">Самое просматриваемое</h3>
 	<ul>

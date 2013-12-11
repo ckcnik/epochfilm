@@ -4,8 +4,6 @@ body {
 
 .fp-screen {
 	width: 1140px;
-	height: 572px;
-	/*background-color: #000000;*/
 }
 
 .fp-screen iframe {
@@ -186,4 +184,19 @@ div.main-poster img:hover {
 div.main-poster {
 	width: 185px;
 	height: 261px;
+}
+
+.navbar-collapse .search-form {
+	float: right;
+	width: 400px;
+	margin-top: 10px;
+}
+
+div.wrap {
+	min-height: 800px;
+}
+
+.sub-menu {
+	height: 50px;
+	background-color: black;
 }
