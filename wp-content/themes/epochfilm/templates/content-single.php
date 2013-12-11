@@ -1,5 +1,6 @@
 <?php while (have_posts()) : the_post(); ?>
 	<?php
+	setPostViews(get_the_ID());
 	$custom_fields = get_post_custom($id);
 	?>
 	<article <?php post_class(); ?>>
@@ -11,6 +12,7 @@
 			<div id="left-column-details" class="left-column-details">
 				<div class="details-header">
 					<h3>Оригинальное название: <?= $custom_fields['eng_name'][0] ?></h3>
+					<span><?= isset($postViews) ? $postViews : '';?></span>
 					<div id="socials">
 						<script type="text/javascript">(function() {
 								if (window.pluso)if (typeof window.pluso.start == "function") return;

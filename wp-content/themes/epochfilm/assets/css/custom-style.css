@@ -146,8 +146,44 @@ body {
 .playing {
 	padding: 5px 5px;
 }
+
 .playing h2 {
 	font-size: 12px;
 	display: inline-block;
 	margin: 0;
+}
+
+#maim-list-films{
+	list-style: none;
+}
+
+#maim-list-films li,
+.widget-popular li{
+	display: inline-block;
+}
+
+#maim-list-films li h5,
+.widget-popular li h5 {
+	text-align: center;
+	margin: 2px 0;
+}
+
+time.year-film {
+	text-align: center;
+	display: block;
+}
+div.main-poster img {
+	padding: 4px;
+}
+
+div.main-poster a {
+	display: block;
+}
+div.main-poster img:hover {
+	outline: 1px solid;
+}
+
+div.main-poster {
+	width: 185px;
+	height: 261px;
 }
