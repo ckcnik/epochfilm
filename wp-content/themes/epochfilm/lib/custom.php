@@ -24,3 +24,17 @@ function getPostViews($postID){
 	}
 	return $count;
 }
+
+function getCategory($id, $catId) {
+	$categories = get_the_category($id);
+	$result = '';
+	if ( !empty( $categories ) ) {
+		foreach ( $categories as $category ) {
+			if ( $category->parent ) {
+				if ($category->parent == $catId)
+					$result .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '" >' . $category->name.'</a> ';
+			}
+		}
+	}
+	return $result;
+}

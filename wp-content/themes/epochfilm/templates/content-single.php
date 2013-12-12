@@ -42,19 +42,19 @@
 								<tbody>
 								<tr>
 									<td>Год</td>
-									<td><?= $custom_fields['time'][0] ?></td>
+									<td><?= getCategory($id, 19); ?></td>
 								</tr>
 								<tr>
 									<td>Страна</td>
-									<td><?= $custom_fields['time'][0] ?></td>
+									<td><?= getCategory($id, 18); ?></td>
 								</tr>
 								<tr>
 									<td>Жанр</td>
-									<td><?= $custom_fields['time'][0] ?></td>
+									<td><?= getCategory($id, 3); ?></td>
 								</tr>
 								<tr>
 									<td>Режиссер</td>
-									<td><?= $custom_fields['time'][0] ?></td>
+									<td><?= getCategory($id, 21); ?></td>
 								</tr>
 								<tr>
 									<td>Возраст</td>
