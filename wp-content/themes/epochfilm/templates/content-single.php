@@ -57,6 +57,10 @@
 									<td><?= getCategory($id, 21); ?></td>
 								</tr>
 								<tr>
+									<td>В главных ролях</td>
+									<td><?= getCategory($id, 20); ?></td>
+								</tr>
+								<tr>
 									<td>Возраст</td>
 									<td><?= $custom_fields['age'][0] ?></td>
 								</tr>

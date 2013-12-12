@@ -60,7 +60,7 @@ function roots_display_sidebar()
 			'is_404',
 			'is_front_page',
 			'is_single',
-			'is_search',
+			'is_search'
 		),
 		/**
 		 * Page template checks (via is_page_template())
@@ -69,7 +69,8 @@ function roots_display_sidebar()
 		array(
 			'template-custom.php',
 			'films.php',
-			'cartoon.php'
+			'cartoon.php',
+			'category.php'
 		)
 	);
 
