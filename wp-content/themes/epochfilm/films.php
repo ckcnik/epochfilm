@@ -4,7 +4,28 @@ Template Name: Films Template
 */
 ?>
 <div class="sub-menu">
-
+<ul>
+	<li><a href="#">арт-хаус</a></li>
+	<li><a href="#">детективы</a></li>
+	<li><a href="#">наши</a></li>
+	<li><a href="#">мюзиклы</a></li>
+	<li><a href="#">мелодрамы</a></li>
+	<li><a href="#">драмы</a></li>
+	<li><a href="#">документальные</a></li>
+	<li><a href="#">боевики</a></li>
+	<li><a href="#">комедии</a></li>
+	<li><a href="#">спортивные</a></li>
+	<li><a href="#">ужасы</a></li>
+	<li><a href="#">фантастика</a></li>
+	<li><a href="#">детские</a></li>
+	<li><a href="#">исторические</a></li>
+	<li><a href="#">военные</a></li>
+	<li><a href="#">зарубежные</a></li>
+	<li><a href="#">приключения</a></li>
+	<li><a href="#">триллеры</a></li>
+	<li><a href="#">криминал</a></li>
+	<li><a href="#">короткометражные</li>
+</ul>
 </div>
 
 <div class="widget-popular">

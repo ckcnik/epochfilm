@@ -4,6 +4,7 @@ body {
 
 .fp-screen {
 	width: 1140px;
+	margin-top: 20px;
 }
 
 .fp-screen iframe {
@@ -197,6 +198,23 @@ div.wrap {
 }
 
 .sub-menu {
-	height: 50px;
-	background-color: black;
+	background-color: #e7e7e7;
+	padding: 5px;
+}
+
+.sub-menu ul {
+	list-style: none;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+.sub-menu ul li {
+	display: inline-block;
+	margin-left: 10px;
+	margin-bottom: 3px;
+	border: 1px solid;
+	padding: 0 3px;
+}
+
+.navbar {
+	margin-bottom: 0;
 }

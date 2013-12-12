@@ -4,11 +4,16 @@ Template Name: Cartoon Template
 */
 ?>
 <div class="sub-menu">
-
+	<ul>
+		<li><a href="#">наши</a></li>
+		<li><a href="#">аниме</a></li>
+		<li><a href="#">Союзультфильм</a></li>
+		<li><a href="#">Зарубежные</a></li>
+	</ul>
 </div>
 
 <div class="widget-popular">
-	<h3 class="widget-title">Самое просматриваемое</h3>
+	<h3 class="widget-title">Самые просматриваемые мультфильмы</h3>
 	<ul>
 		<?php
 		$args = array(
@@ -29,7 +34,7 @@ Template Name: Cartoon Template
 	</ul>
 </div>
 
-<h3 class="widget-title">Новое на сайте</h3>
+<h3 class="widget-title">Новые мультфильмы</h3>
 <ul id="maim-list-films">
 	<?php
 	$args = array(
