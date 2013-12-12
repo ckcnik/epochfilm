@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Films Template
+Template Name: Cartoon Template
 */
 ?>
 <div class="sub-menu">
@@ -17,7 +17,7 @@ Template Name: Films Template
 			'orderby' 		=> 'meta_value_num',
 			'order' 		=> 'DESC',
 			'meta_query' => array(
-				array('key' => 'movie_type', 'value'=>'film'
+				array('key' => 'movie_type', 'value'=>'cartoon'
 				)
 			)
 		);
@@ -34,7 +34,7 @@ Template Name: Films Template
 	<?php
 	$args = array(
 		'meta_query' => array(
-			array('key' => 'movie_type', 'value'=>'film'
+			array('key' => 'movie_type', 'value'=>'cartoon'
 			)
 		),
 		'post_type'		=> 'post'

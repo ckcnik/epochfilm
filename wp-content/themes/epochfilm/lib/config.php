@@ -68,7 +68,8 @@ function roots_display_sidebar()
 		 */
 		array(
 			'template-custom.php',
-			'films.php'
+			'films.php',
+			'cartoon.php'
 		)
 	);
 
