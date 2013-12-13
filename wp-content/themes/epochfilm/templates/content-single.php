@@ -87,44 +87,17 @@
 				</div>
 			</div>
 			<div id="right-column-details" class="right-column-details">
+				<?php $relatedPosts = getRelatedPosts($id); ?>
 				<div class="details-header"><h3>Related Movies</h3></div>
 				<div class="wrapper-related-movies">
+					<?php foreach ($relatedPosts as $itemPost ) : ?>
 					<div class="related-movie">
-						<a href="http://www.viewster.com/movie/1055-10791-000/4-weeks-of-sunshine">
-							<img alt="4 Weeks of Sunshine" src="/wp-content/uploads/2013/12/1919.jpg" width="90"
+						<a href="<?= $itemPost['permalink']?>">
+							<img alt="4 Weeks of Sunshine" src="<?= $itemPost['image_path']?>" width="90"
 								 height="135" class="box-shadow">
 						</a>
 					</div>
-					<div class="related-movie">
-						<a href="http://www.viewster.com/movie/1055-10791-000/4-weeks-of-sunshine">
-							<img alt="4 Weeks of Sunshine" src="/wp-content/uploads/2013/12/111.jpg" width="90"
-								 height="135" class="box-shadow">
-						</a>
-					</div>
-					<div class="related-movie">
-						<a href="http://www.viewster.com/movie/1055-10791-000/4-weeks-of-sunshine">
-							<img alt="4 Weeks of Sunshine" src="/wp-content/uploads/2013/12/2222.jpg" width="90"
-								 height="135" class="box-shadow">
-						</a>
-					</div>
-					<div class="related-movie">
-						<a href="http://www.viewster.com/movie/1055-10791-000/4-weeks-of-sunshine">
-							<img alt="4 Weeks of Sunshine" src="/wp-content/uploads/2013/12/333.jpg" width="90"
-								 height="135" class="box-shadow">
-						</a>
-					</div>
-					<div class="related-movie">
-						<a href="http://www.viewster.com/movie/1055-10791-000/4-weeks-of-sunshine">
-							<img alt="4 Weeks of Sunshine" src="/wp-content/uploads/2013/12/444.jpg" width="90"
-								 height="135" class="box-shadow">
-						</a>
-					</div>
-					<div class="related-movie">
-						<a href="http://www.viewster.com/movie/1055-10791-000/4-weeks-of-sunshine">
-							<img alt="4 Weeks of Sunshine" src="/wp-content/uploads/2013/12/666.jpg" width="90"
-								 height="135" class="box-shadow">
-						</a>
-					</div>
+					<?php endforeach; ?>
 					<div class="clear"></div>
 				</div>
 			</div>
