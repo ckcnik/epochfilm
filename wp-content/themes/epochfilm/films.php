@@ -5,26 +5,23 @@ Template Name: Films Template
 ?>
 <div class="sub-menu">
 <ul>
-	<li><a href="#">арт-хаус</a></li>
-	<li><a href="#">детективы</a></li>
-	<li><a href="#">наши</a></li>
-	<li><a href="#">мюзиклы</a></li>
-	<li><a href="#">мелодрамы</a></li>
-	<li><a href="#">драмы</a></li>
-	<li><a href="#">документальные</a></li>
-	<li><a href="#">боевики</a></li>
-	<li><a href="#">комедии</a></li>
-	<li><a href="#">спортивные</a></li>
-	<li><a href="#">ужасы</a></li>
-	<li><a href="#">фантастика</a></li>
-	<li><a href="#">детские</a></li>
-	<li><a href="#">исторические</a></li>
-	<li><a href="#">военные</a></li>
-	<li><a href="#">зарубежные</a></li>
-	<li><a href="#">приключения</a></li>
-	<li><a href="#">триллеры</a></li>
-	<li><a href="#">криминал</a></li>
-	<li><a href="#">короткометражные</li>
+
+	<?php
+	$args = array(
+		'type' 			=> 'post',
+		'child_of'		=> 0,
+		'parent' 		=> '3',
+		'orderby' 		=> 'name',
+		'order' 		=> 'ASC',
+		'hide_empty' 	=> 1,
+		'hierarchical' 	=> 1,
+		'taxonomy' 		=> 'category',
+		'pad_counts' 	=> false
+	);
+	$genreCategories = get_categories( $args ) ?>
+	<?php foreach ($genreCategories as $catObj):?>
+		<li><a href="<?= get_category_link( $catObj->cat_ID)?>"><?= $catObj->name?></a></li>
+	<?php endforeach;?>
 </ul>
 </div>
 

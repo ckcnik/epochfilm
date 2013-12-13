@@ -31,7 +31,7 @@
 						<img width="183" height="259" src="<?= $custom_fields['image_path'][0] ?>"
 							 alt="<?php the_title(); ?>" class="box-shadow">
 					</div>
-					<div class="description-film-container">
+					<div class="description-film-container noselect">
 						<div class="header-comments">
 							<h1><?php the_title(); ?></h1>
 							<div id="ratingImDb"><?= $custom_fields['rating_plugin_HTML'][0] ?></div>
