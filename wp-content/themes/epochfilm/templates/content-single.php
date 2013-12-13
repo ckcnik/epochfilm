@@ -80,7 +80,6 @@
 								<?php the_content(); ?>
 							</div>
 						</div>
-						<!--                          <a href="#" id="expand-film-description" class="show-more">Show More</a>-->
 						<label id="expand-film-description" class="show-more">Show More</label>
 					</div>
 					<div class="clear"></div>

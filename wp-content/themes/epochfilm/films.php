@@ -8,15 +8,15 @@ Template Name: Films Template
 
 	<?php
 	$args = array(
-		'type' 			=> 'post',
+		'type'			=> 'post',
 		'child_of'		=> 0,
-		'parent' 		=> '3',
-		'orderby' 		=> 'name',
-		'order' 		=> 'ASC',
-		'hide_empty' 	=> 1,
-		'hierarchical' 	=> 1,
-		'taxonomy' 		=> 'category',
-		'pad_counts' 	=> false
+		'parent'		=> '3',
+		'orderby'		=> 'name',
+		'order'			=> 'ASC',
+		'hide_empty'	=> 1,
+		'hierarchical'	=> 1,
+		'taxonomy'		=> 'category',
+		'pad_counts'	=> false
 	);
 	$genreCategories = get_categories( $args ) ?>
 	<?php foreach ($genreCategories as $catObj):?>

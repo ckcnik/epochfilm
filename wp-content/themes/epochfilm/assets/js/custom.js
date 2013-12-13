@@ -1,17 +1,21 @@
 $(document).ready(function () {
 	var heightDescriptionFilm = 40;
 	$('.film-description').height(heightDescriptionFilm);
-	correctHeightDetailsBlock();
+	if ( $('#film-description').height() === $('#film-content').height() ) {
+		$('#expand-film-description').hide();
+	}
+
+	correctHeightDetailsBlock();	// correcting heights left and right blocks
 
 	/**
-	 * логикак для кнопки Show more при сварачивании и развараяивании информации по фильму
+	 * logic for the button folding and unfolding of information on the film
 	 */
 	$('#expand-film-description').on('click', function () {
 
-		contentHeight = $('#film-content').height();			// реальная высота блока с описанием фильма
-		wrapHeiht = $('#film-description').height();			// высота урезанного блока с описанием
-		rightColumnHeiht = $('#right-column-details').height();	// высота блока с релевантными ыильмами
-		leftColumnHeiht = $('#left-column-details').height();	// высота блока с описанием фильма
+		contentHeight 		= $('#film-content').height();			// реальная высота блока с описанием фильма
+		wrapHeiht 			= $('#film-description').height();			// высота урезанного блока с описанием
+		rightColumnHeiht 	= $('#right-column-details').height();	// высота блока с релевантными ыильмами
+		leftColumnHeiht 	= $('#left-column-details').height();	// высота блока с описанием фильма
 
 		// разница между требуемой высотой и высотой скрытого блока с описанием
 		diffHeight = contentHeight - heightDescriptionFilm;
@@ -52,8 +56,8 @@ $(document).ready(function () {
  * корректирует по высоте блоки: left-column-details, left-column-details
  */
 function correctHeightDetailsBlock() {
-	heightRightColumn = $('#right-column-details').height();
-	heightLeftColumn = $('#left-column-details').height();
+	heightRightColumn 	= $('#right-column-details').height();
+	heightLeftColumn 	= $('#left-column-details').height();
 	if (heightRightColumn != heightLeftColumn) {
 		if (heightLeftColumn < heightRightColumn) {
 			$('#left-column-details').height(heightRightColumn);
