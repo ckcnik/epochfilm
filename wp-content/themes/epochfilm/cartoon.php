@@ -5,8 +5,25 @@ Template Name: Cartoon Template
 ?>
 <div class="sub-menu">
 	<ul>
+		<?php
+		$haveInCategory = '194';
+		$args = array(
+			'type'			=> 'post',
+			'child_of'		=> 0,
+			'parent'		=> '3',
+			'orderby'		=> 'name',
+			'order'			=> 'ASC',
+			'hide_empty'	=> 1,
+			'hierarchical'	=> 1,
+			'include'		=> '193',
+			'taxonomy'		=> 'category',
+			'pad_counts'	=> false
+		);
+		$genreCategories = get_categories( $args ) ?>
+		<?php foreach ($genreCategories as $catObj):?>
+			<li><a href="<?= get_category_link( $catObj->cat_ID)?>"><?= $catObj->name?></a></li>
+		<?php endforeach;?>
 		<li><a href="#">наши</a></li>
-		<li><a href="#">аниме</a></li>
 		<li><a href="#">Союзультфильм</a></li>
 		<li><a href="#">Зарубежные</a></li>
 	</ul>
@@ -17,14 +34,11 @@ Template Name: Cartoon Template
 	<ul>
 		<?php
 		$args = array(
-			'numberposts' 	=> 5,
-			'meta_key' 		=> 'post_views_count',
-			'orderby' 		=> 'meta_value_num',
-			'order' 		=> 'DESC',
-			'meta_query' => array(
-				array('key' => 'movie_type', 'value'=>'cartoon'
-				)
-			)
+			'posts_per_page' 	=> 6,
+			'category__in'		=> $haveInCategory,
+			'meta_key' 			=> 'post_views_count',
+			'orderby' 			=> 'meta_value_num',
+			'order' 			=> 'DESC',
 		);
 		query_posts($args);
 		while ( have_posts() ) : the_post();
@@ -38,10 +52,7 @@ Template Name: Cartoon Template
 <ul id="maim-list-films">
 	<?php
 	$args = array(
-		'meta_query' => array(
-			array('key' => 'movie_type', 'value'=>'cartoon'
-			)
-		),
+		'category__in'	=> $haveInCategory,
 		'post_type'		=> 'post'
 	);
 	query_posts($args);

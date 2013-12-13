@@ -5,7 +5,7 @@ $custom_fields = get_post_custom($id);
 	<article <?php post_class(); ?>>
 		<div class="main-poster">
 			<a href="<?php the_permalink(); ?>">
-				<img width="183" height="259" src="<?= $custom_fields['image_path'][0] ?>">
+				<img width="154" height="230" src="<?= $custom_fields['image_path'][0] ?>">
 			</a>
 		</div>
 	<header>

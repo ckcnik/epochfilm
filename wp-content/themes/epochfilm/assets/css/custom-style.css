@@ -182,11 +182,6 @@ div.main-poster img:hover {
 	outline: 1px solid;
 }
 
-div.main-poster {
-	width: 185px;
-	height: 261px;
-}
-
 .navbar-collapse .search-form {
 	float: right;
 	width: 400px;
@@ -225,4 +220,9 @@ div.wrap {
 	-ms-user-select: none;
 	-o-user-select: none;
 	user-select: none;
+}
+
+.error {
+	color: red;
+	font-weight: bold;
 }

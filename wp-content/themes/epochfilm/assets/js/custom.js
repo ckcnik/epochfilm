@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	var heightDescriptionFilm = 40;
 	$('.film-description').height(heightDescriptionFilm);
-	if ( $('#film-description').height() === $('#film-content').height() ) {
+	if ( $('#film-description').height() >= $('#film-content').height() ) {
 		$('#expand-film-description').hide();
 	}
 
@@ -13,7 +13,7 @@ $(document).ready(function () {
 	$('#expand-film-description').on('click', function () {
 
 		contentHeight 		= $('#film-content').height();			// реальная высота блока с описанием фильма
-		wrapHeiht 			= $('#film-description').height();			// высота урезанного блока с описанием
+		wrapHeiht 			= $('#film-description').height();		// высота урезанного блока с описанием
 		rightColumnHeiht 	= $('#right-column-details').height();	// высота блока с релевантными ыильмами
 		leftColumnHeiht 	= $('#left-column-details').height();	// высота блока с описанием фильма
 

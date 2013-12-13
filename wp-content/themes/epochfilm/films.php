@@ -7,6 +7,7 @@ Template Name: Films Template
 <ul>
 
 	<?php
+	$notInCategory = '194';
 	$args = array(
 		'type'			=> 'post',
 		'child_of'		=> 0,
@@ -15,6 +16,7 @@ Template Name: Films Template
 		'order'			=> 'ASC',
 		'hide_empty'	=> 1,
 		'hierarchical'	=> 1,
+		'exclude'		=> $notInCategory,
 		'taxonomy'		=> 'category',
 		'pad_counts'	=> false
 	);
@@ -30,14 +32,11 @@ Template Name: Films Template
 	<ul>
 		<?php
 		$args = array(
-			'numberposts' 	=> 5,
-			'meta_key' 		=> 'post_views_count',
-			'orderby' 		=> 'meta_value_num',
-			'order' 		=> 'DESC',
-			'meta_query' => array(
-				array('key' => 'movie_type', 'value'=>'film'
-				)
-			)
+			'posts_per_page' 		=> 6,
+			'category__not_in'	=> $notInCategory,
+			'meta_key' 			=> 'post_views_count',
+			'orderby' 			=> 'meta_value_num',
+			'order' 			=> 'DESC',
 		);
 		query_posts($args);
 		while ( have_posts() ) : the_post();
@@ -51,11 +50,8 @@ Template Name: Films Template
 <ul id="maim-list-films">
 	<?php
 	$args = array(
-		'meta_query' => array(
-			array('key' => 'movie_type', 'value'=>'film'
-			)
-		),
-		'post_type'		=> 'post'
+		'category__not_in'	=> $notInCategory,
+		'post_type'			=> 'post'
 	);
 	query_posts($args);
 	while (have_posts()) : the_post(); ?>

@@ -11,7 +11,7 @@
 		<div class="details">
 			<div id="left-column-details" class="left-column-details">
 				<div class="details-header">
-					<h3>Оригинальное название: <?= $custom_fields['eng_name'][0] ?></h3>
+					<h3>Оригинальное название: <?= !empty($custom_fields['eng_name'][0]) ? $custom_fields['eng_name'][0] : the_title(); ?></h3>
 					<span><?= isset($postViews) ? $postViews : '';?></span>
 					<div id="socials">
 						<script type="text/javascript">(function() {
@@ -34,7 +34,12 @@
 					<div class="description-film-container noselect">
 						<div class="header-comments">
 							<h1><?php the_title(); ?></h1>
-							<div id="ratingImDb"><?= $custom_fields['rating_plugin_HTML'][0] ?></div>
+							<div id="ratingImDb">
+								<?=
+								!empty($custom_fields['rating_plugin_HTML'][0]) ?
+									$custom_fields['rating_plugin_HTML'][0] : "<div class='error'>нет рейтинга</div>"
+								?>
+							</div>
 						</div>
 						<div class="film-history">
 							<table id="">
@@ -58,7 +63,7 @@
 								</tr>
 								<tr>
 									<td>В главных ролях</td>
-									<td><?= getCategory($id, 20); ?></td>
+									<td><?= !empty(getCategory($id, 20)) ? getCategory($id, 20) : '<div class="error">нет информации</div>'; ?></td>
 								</tr>
 								<tr>
 									<td>Возраст</td>
@@ -77,7 +82,7 @@
 						</div>
 						<div id="film-description" class="film-description">
 							<div id="film-content">
-								<?php the_content(); ?>
+								<?= !empty(get_the_content()) ? get_the_content() : "<div class='error'>нет описания к фильму</div>"; ?>
 							</div>
 						</div>
 						<label id="expand-film-description" class="show-more">Show More</label>
@@ -89,6 +94,7 @@
 				<?php $relatedPosts = getRelatedPosts($id); ?>
 				<div class="details-header"><h3>Related Movies</h3></div>
 				<div class="wrapper-related-movies">
+					<?php if ( !empty($relatedPosts) ) : ?>
 					<?php foreach ($relatedPosts as $itemPost ) : ?>
 					<div class="related-movie">
 						<a href="<?= $itemPost['permalink']?>">
@@ -97,6 +103,9 @@
 						</a>
 					</div>
 					<?php endforeach; ?>
+					<?php else : ?>
+						<div class="error">нет релевантных фильмов</div>
+					<?php endif; ?>
 					<div class="clear"></div>
 				</div>
 			</div>

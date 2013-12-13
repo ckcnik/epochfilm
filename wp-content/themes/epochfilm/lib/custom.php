@@ -72,7 +72,7 @@ function getRelatedPosts($id)
 		$args = array(
 			'category__in'		=> $category_ids,
 			'post__not_in'		=> array($id),
-			'showposts'			=> 5, // number of related posts
+			'showposts'			=> 6, // number of related posts
 			'orderby'			=> rand,
 			'caller_get_posts'	=> 1
 		);

@@ -2,7 +2,12 @@
 	<h3 class="widget-title">Самое просматриваемое</h3>
 	<ul>
 		<?php
-		$args = array( 'numberposts' => 5, 'meta_key' => 'post_views_count', 'orderby' => 'meta_value_num', 'order' => 'DESC' );
+		$args = array(
+			'posts_per_page'	=> 6,
+			'meta_key'			=> 'post_views_count',
+			'orderby'			=> 'meta_value_num',
+			'order'				=> 'DESC'
+		);
 		query_posts($args);
 		while ( have_posts() ) : the_post();
 			?>
