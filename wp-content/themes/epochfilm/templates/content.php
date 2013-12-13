@@ -9,7 +9,7 @@ $custom_fields = get_post_custom($id);
 			</a>
 		</div>
 	<header>
-		<h5 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+		<p class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 		<time class="year-film"><?= getCategory($id, 19); ?></time>
 	</header>
 	</article>

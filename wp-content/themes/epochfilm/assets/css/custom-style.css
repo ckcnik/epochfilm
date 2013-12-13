@@ -152,21 +152,6 @@ body {
 	margin: 0;
 }
 
-#maim-list-films{
-	list-style: none;
-}
-
-#maim-list-films li,
-.widget-popular li{
-	display: inline-block;
-}
-
-#maim-list-films li h5,
-.widget-popular li h5 {
-	text-align: center;
-	margin: 2px 0;
-}
-
 time.year-film {
 	text-align: center;
 	display: block;
@@ -225,4 +210,36 @@ div.wrap {
 .error {
 	color: red;
 	font-weight: bold;
+}
+
+.widget-popular li {
+	padding: 1px;
+	width: 156px;
+	overflow: hidden;
+	font-size: 12px;
+}
+
+.widget-popular li header {
+	height: 30px;
+}
+
+.presentation {
+	list-style: none;
+}
+
+.presentation li {
+	display: inline-block;
+	padding: 1px;
+	width: 156px;
+	overflow: hidden;
+	font-size: 12px;
+}
+
+.presentation li header {
+	height: 30px;
+}
+
+.presentation li p {
+	text-align: center;
+	margin: 2px 0;
 }

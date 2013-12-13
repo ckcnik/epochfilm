@@ -1,4 +1,4 @@
-<div class="widget-popular">
+<div class="presentation">
 	<h3 class="widget-title">Самое просматриваемое</h3>
 	<ul>
 		<?php
@@ -17,7 +17,7 @@
 </div>
 
 <h3 class="widget-title">Новое на сайте</h3>
-<ul id="maim-list-films">
+<ul class="presentation">
 	<?php while (have_posts()) : the_post(); ?>
 		<?php get_template_part('templates/content', get_post_format()); ?>
 	<?php endwhile; ?>

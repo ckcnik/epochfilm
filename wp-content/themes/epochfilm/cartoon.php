@@ -29,7 +29,7 @@ Template Name: Cartoon Template
 	</ul>
 </div>
 
-<div class="widget-popular">
+<div class="presentation">
 	<h3 class="widget-title">Самые просматриваемые мультфильмы</h3>
 	<ul>
 		<?php
@@ -49,7 +49,7 @@ Template Name: Cartoon Template
 </div>
 
 <h3 class="widget-title">Новые мультфильмы</h3>
-<ul id="maim-list-films">
+<ul class="presentation">
 	<?php
 	$args = array(
 		'category__in'	=> $haveInCategory,

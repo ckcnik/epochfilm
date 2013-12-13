@@ -27,7 +27,7 @@ Template Name: Films Template
 </ul>
 </div>
 
-<div class="widget-popular">
+<div class="presentation">
 	<h3 class="widget-title">Самое просматриваемое</h3>
 	<ul>
 		<?php
@@ -47,7 +47,7 @@ Template Name: Films Template
 </div>
 
 <h3 class="widget-title">Новое на сайте</h3>
-<ul id="maim-list-films">
+<ul class="presentation">
 	<?php
 	$args = array(
 		'category__not_in'	=> $notInCategory,
