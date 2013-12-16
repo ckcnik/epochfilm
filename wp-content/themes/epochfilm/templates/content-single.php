@@ -45,7 +45,7 @@
 							</div>
 						</div>
 						<div class="film-history">
-							<table id="">
+							<table>
 								<thead></thead>
 								<tbody>
 								<tr>
@@ -101,8 +101,8 @@
 					<?php foreach ($relatedPosts as $itemPost ) : ?>
 					<div class="related-movie">
 						<a href="<?= $itemPost['permalink']?>">
-							<img alt="4 Weeks of Sunshine" src="<?= $itemPost['image_path']?>" width="90"
-								 height="135" class="box-shadow">
+							<img alt="<?= $itemPost['title']?>" src="<?= $itemPost['image_path']?>" width="90"
+								 height="135" class="box-shadow" title="<?= $itemPost['title']?>">
 						</a>
 					</div>
 					<?php endforeach; ?>

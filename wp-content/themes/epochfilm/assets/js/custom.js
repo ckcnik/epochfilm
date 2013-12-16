@@ -1,4 +1,6 @@
 $(document).ready(function () {
+	setTimeout(removePlusoLink, 1000);
+
 	var heightDescriptionFilm = 35;
 	$('.film-description').height(heightDescriptionFilm);
 	if ( $('#film-description').height() >= $('#film-content').height() ) {
@@ -66,4 +68,11 @@ function correctHeightDetailsBlock() {
 			$('#right-column-details').height(heightLeftColumn);
 		}
 	}
+}
+
+/**
+ * Удаляем ссылку на сервис плюсо
+ */
+function removePlusoLink() {
+	$('.pluso-more').remove();
 }

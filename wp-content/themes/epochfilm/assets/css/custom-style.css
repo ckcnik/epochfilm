@@ -2,6 +2,43 @@ body {
 	color: white;
 }
 
+div.wrap {
+	min-height: 800px;
+}
+
+footer {
+	background: url(../img/footer-tail.jpg) 0 0 repeat #1c1c1c;
+}
+
+footer .row {
+	padding: 15px 0;
+}
+
+body {
+	background: url(../img/body-tail.gif) center 0 repeat #c9c8c9;
+}
+
+/*		главное меню		*/
+.navbar {
+	background: #e4e4e4 url(../img/header.png) top repeat-x;
+}
+
+.navbar-collapse {
+	padding-right: 0;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav>li>a {
+	color: white;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav>li>a:hover {
+	text-shadow: 1px 1px 2px black, 0 0 1em white; /* Параметры тени */
+	color: white;
+}
+
+/*				плеер				*/
 .fp-screen {
 	width: 1140px;
 	height: 527px;
@@ -15,6 +52,7 @@ body {
 	height: 100%;
 }
 
+/*		контейнер под плеером		*/
 .details {
 	margin-top: 10px;
 }
@@ -52,12 +90,7 @@ body {
 	margin: 5px 5px;
 }
 
-.box-shadow {
-	-moz-box-shadow: 1px 2px 5px #131211;
-	-webkit-box-shadow: 1px 2px 5px #131211;
-	box-shadow: 1px 2px 5px #131211;
-}
-
+/*		постер фильма и его описание		*/
 .details-poster {
 	padding: 0 10px 20px 10px;
 }
@@ -65,12 +98,12 @@ body {
 .details-poster,
 .description-film-container {
 	float: left;
-	color: #b1a99c;
+	color: #666666;
 }
 
 .description-film-container .show-more {
 	float: right;
-	margin-top: 15px;
+	margin: 5px 0 0 0;
 }
 
 .description-film-container .show-more:hover {
@@ -100,35 +133,48 @@ body {
 	top: -10px;
 }
 
-.clear {
-	clear: both;
-}
-
 .description-film-container {
-	padding: 10px 10px 10px 0;
-	width: 600px;
+	padding: 10px 10px 5px 0;
+	width: 74.92%;
 }
 
 .film-description {
 	overflow: hidden;
 }
 
+.film-history table {
+	margin-bottom: 10px;
+}
+
 .film-history table,
 .film-description {
 	font-size: 12px;
+	text-align: justify;
 }
 
 .film-history table td {
-	padding-right: 15px;
+	padding-right: 10px;
+}
+
+.film-history table tr {
+	border-bottom: 1px solid #ffffff;
+}
+
+.film-history table td:first-child {
+	border-right: 1px solid #ffffff;
+}
+
+.film-history table td:last-child {
+	padding: 2px 0 2px 5px;
 }
 
 .wrapper-related-movies {
-	margin: 5px 10px;
+	margin: 10px 10px;
 }
 
 .related-movie {
 	width: 90px;
-	margin: 2px 5px;
+	margin: 5px 5px;
 	float: left;
 	position: relative;
 	height: 141px;
@@ -167,16 +213,43 @@ div.main-poster img:hover {
 	outline: 1px solid;
 }
 
+/*		социальные кнопки		*/
+.pluso-more {
+	display: none !important;
+}
+
+/*		классы общего использования		*/
+.box-shadow {
+	-moz-box-shadow: 1px 2px 5px #131211;
+	-webkit-box-shadow: 1px 2px 5px #131211;
+	box-shadow: 1px 2px 5px #131211;
+}
+
+.clear {
+	clear: both;
+}
+
+.error {
+	color: red;
+	font-weight: bold;
+}
+
+.noselect {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+/*		строка поиска		*/
 .navbar-collapse .search-form {
 	float: right;
 	width: 400px;
 	margin-top: 10px;
 }
 
-div.wrap {
-	min-height: 800px;
-}
-
+/*		менюшка с рубриками		*/
 .sub-menu {
 	background-color: #e7e7e7;
 	padding: 5px;
@@ -199,30 +272,7 @@ div.wrap {
 	margin-bottom: 0;
 }
 
-.noselect {
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	-o-user-select: none;
-	user-select: none;
-}
-
-.error {
-	color: red;
-	font-weight: bold;
-}
-
-.widget-popular li {
-	padding: 1px;
-	width: 156px;
-	overflow: hidden;
-	font-size: 12px;
-}
-
-.widget-popular li header {
-	height: 30px;
-}
-
+/*		фильм на главной		*/
 .presentation {
 	list-style: none;
 }
@@ -242,24 +292,4 @@ div.wrap {
 .presentation li p {
 	text-align: center;
 	margin: 2px 0;
-}
-
-footer {
-	background: url(../img/footer-tail.jpg) 0 0 repeat #1c1c1c;
-}
-
-body {
-	background: url(../img/body-tail.gif) center 0 repeat #c9c8c9;
-}
-
-.navbar {
-	background: #e4e4e4 url(../img/header.png) top repeat-x;
-}
-
-.navbar-collapse {
-	padding-right: 0;
-}
-
-.pluso-more {
-	display: none !important;
 }
