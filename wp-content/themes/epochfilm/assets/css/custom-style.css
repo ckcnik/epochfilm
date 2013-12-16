@@ -1,5 +1,5 @@
 body {
-	color: #f2ac13;;
+	color: white;
 }
 
 .fp-screen {
@@ -242,4 +242,14 @@ div.wrap {
 .presentation li p {
 	text-align: center;
 	margin: 2px 0;
+}
+
+footer {
+	background: url(../img/footer-tail.jpg) 0 0 repeat #1c1c1c;
+}
+body {
+	background: url(../img/body-tail.gif) center 0 repeat #c9c8c9;
+}
+.navbar {
+	background: #e4e4e4 url(../img/header.png) top repeat-x;
 }

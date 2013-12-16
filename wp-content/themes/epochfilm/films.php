@@ -5,7 +5,6 @@ Template Name: Films Template
 ?>
 <div class="sub-menu">
 <ul>
-
 	<?php
 	$notInCategory = '194';
 	$args = array(

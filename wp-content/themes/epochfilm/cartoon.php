@@ -7,6 +7,7 @@ Template Name: Cartoon Template
 	<ul>
 		<?php
 		$haveInCategory = '194';
+		$notInCategory = '194';
 		$args = array(
 			'type'			=> 'post',
 			'child_of'		=> 0,
@@ -15,7 +16,7 @@ Template Name: Cartoon Template
 			'order'			=> 'ASC',
 			'hide_empty'	=> 1,
 			'hierarchical'	=> 1,
-			'include'		=> '193',
+			'exclude'		=> $notInCategory,
 			'taxonomy'		=> 'category',
 			'pad_counts'	=> false
 		);
@@ -23,9 +24,6 @@ Template Name: Cartoon Template
 		<?php foreach ($genreCategories as $catObj):?>
 			<li><a href="<?= get_category_link( $catObj->cat_ID)?>"><?= $catObj->name?></a></li>
 		<?php endforeach;?>
-		<li><a href="#">наши</a></li>
-		<li><a href="#">Союзультфильм</a></li>
-		<li><a href="#">Зарубежные</a></li>
 	</ul>
 </div>
 
