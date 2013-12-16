@@ -5,25 +5,28 @@
 	?>
 	<article <?php post_class(); ?>>
 		<div class="fp-screen">
-			<div class="playing details-header">Воспроизведение видео: <h2><?php the_title(); ?></h2></div>
 			<iframe src="<?= $custom_fields['vk_player_url'][0] ?>" frameborder="0"></iframe>
 		</div>
 		<div class="details">
-			<div id="left-column-details" class="left-column-details">
+			<div id="left-column-details" class="left-column-details box-shadow">
 				<div class="details-header">
 					<h3>Оригинальное название: <?= !empty($custom_fields['eng_name'][0]) ? $custom_fields['eng_name'][0] : the_title(); ?></h3>
 					<span><?= isset($postViews) ? $postViews : '';?></span>
 					<div id="socials">
 						<script type="text/javascript">(function() {
 								if (window.pluso)if (typeof window.pluso.start == "function") return;
-								if (window.ifpluso==undefined) { window.ifpluso = 1;
+								if (window.ifpluso==undefined)
+								{
+									window.ifpluso = 1;
 									var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
 									s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
 									s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
 									var h=d[g]('body')[0];
 									h.appendChild(s);
-								}})();</script>
-						<div class="pluso" data-background="transparent" data-options="small,round,line,horizontal,counter,theme=04" data-services="vkontakte,odnoklassniki,twitter,google,facebook"></div>
+								}
+							})();
+							$('.pluso-more').remove();</script>
+						<div class="pluso" data-background="transparent" data-options="small,round,line,horizontal,nocounter,theme=07" data-services="vkontakte,odnoklassniki,twitter,google"></div>
 					</div>
 				</div>
 				<div class="content-wrapper-details">
@@ -90,7 +93,7 @@
 					<div class="clear"></div>
 				</div>
 			</div>
-			<div id="right-column-details" class="right-column-details">
+			<div id="right-column-details" class="right-column-details box-shadow">
 				<?php $relatedPosts = getRelatedPosts($id); ?>
 				<div class="details-header"><h3>Related Movies</h3></div>
 				<div class="wrapper-related-movies">

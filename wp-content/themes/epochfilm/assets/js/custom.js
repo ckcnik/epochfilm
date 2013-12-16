@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	var heightDescriptionFilm = 40;
+	var heightDescriptionFilm = 35;
 	$('.film-description').height(heightDescriptionFilm);
 	if ( $('#film-description').height() >= $('#film-content').height() ) {
 		$('#expand-film-description').hide();

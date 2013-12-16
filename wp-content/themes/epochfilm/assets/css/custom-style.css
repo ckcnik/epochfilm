@@ -4,12 +4,15 @@ body {
 
 .fp-screen {
 	width: 1140px;
+	height: 527px;
 	margin-top: 20px;
+	padding: 18px 18px;
+	background: #eee;
 }
 
 .fp-screen iframe {
-	width: 1140px;
-	height: 542px;
+	width:100%;
+	height: 100%;
 }
 
 .details {
@@ -18,14 +21,17 @@ body {
 
 .left-column-details {
 	float: left;
-	background-color: #1f1f1f;
 	width: 71%;
 	min-height: 336px;
 }
 
+.left-column-details,
+.right-column-details {
+	background: #f3f3f3;
+}
+
 .right-column-details {
 	float: right;
-	background-color: #1f1f1f;
 	width: 28.1%;
 }
 
@@ -72,12 +78,15 @@ body {
 }
 
 .details-header {
-	background-color: #131211;
+	background: #e4e4e4 url(../img/header.png);
 }
 
 .header-comments h1 {
-	font-size: 16px;
 	margin-top: 10px;
+	font-size: 18px;
+	font-weight: 900;
+	text-transform: uppercase;
+	color: #444;
 }
 
 .header-comments {
@@ -96,7 +105,7 @@ body {
 }
 
 .description-film-container {
-	padding: 10px 20px 10px 0;
+	padding: 10px 10px 10px 0;
 	width: 600px;
 }
 
@@ -104,8 +113,9 @@ body {
 	overflow: hidden;
 }
 
-.film-history table {
-	font-size: 14px;
+.film-history table,
+.film-description {
+	font-size: 12px;
 }
 
 .film-history table td {
@@ -131,7 +141,7 @@ body {
 #comments-to-film {
 	padding: 10px;
 	margin: 10px auto;
-	background-color: #120f0f;
+	background: #eee;
 }
 
 .wrapper-comments {
@@ -140,16 +150,6 @@ body {
 
 #ratingImDb {
 	height: 42px;
-}
-
-.playing {
-	padding: 5px 5px;
-}
-
-.playing h2 {
-	font-size: 12px;
-	display: inline-block;
-	margin: 0;
 }
 
 time.year-film {
@@ -247,9 +247,19 @@ div.wrap {
 footer {
 	background: url(../img/footer-tail.jpg) 0 0 repeat #1c1c1c;
 }
+
 body {
 	background: url(../img/body-tail.gif) center 0 repeat #c9c8c9;
 }
+
 .navbar {
 	background: #e4e4e4 url(../img/header.png) top repeat-x;
+}
+
+.navbar-collapse {
+	padding-right: 0;
+}
+
+.pluso-more {
+	display: none !important;
 }
