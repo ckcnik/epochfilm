@@ -1,5 +1,5 @@
 <div class="presentation">
-	<h3 class="widget-title">Самое просматриваемое</h3>
+	<h3 class="headers">Самое просматриваемое</h3>
 	<ul>
 		<?php
 		$args = array(
@@ -25,12 +25,11 @@
 
 				</article>
 			</li>
-
 		<?php endwhile; wp_reset_query(); ?>
 	</ul>
 </div>
 
-<h3 class="widget-title">Новое на сайте</h3>
+<h3 class="widget-title headers">Новое на сайте</h3>
 <ul class="presentation">
 	<?php while (have_posts()) : the_post(); ?>
 		<?php get_template_part('templates/content', get_post_format()); ?>

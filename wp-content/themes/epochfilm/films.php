@@ -27,7 +27,7 @@ Template Name: Films Template
 </div>
 
 <div class="presentation">
-	<h3 class="widget-title">Самое просматриваемое</h3>
+	<h3 class="headers">Самое просматриваемое</h3>
 	<ul>
 		<?php
 		$args = array(
@@ -40,12 +40,25 @@ Template Name: Films Template
 		query_posts($args);
 		while ( have_posts() ) : the_post();
 			?>
-			<?php get_template_part('templates/content', get_post_format()); ?>
+			<?php
+			$custom_fields = get_post_custom($id);
+			?>
+			<li>
+				<article <?php post_class(); ?>>
+					<div class="main-poster">
+						<a href="<?php the_permalink(); ?>">
+							<img src="<?= $custom_fields['image_path'][0] ?>">
+							<span class="start-play"></span>
+						</a>
+					</div>
+
+				</article>
+			</li>
 		<?php endwhile; wp_reset_query(); ?>
 	</ul>
 </div>
 
-<h3 class="widget-title">Новое на сайте</h3>
+<h3 class="widget-title headers">Новое на сайте</h3>
 <ul class="presentation">
 	<?php
 	$args = array(

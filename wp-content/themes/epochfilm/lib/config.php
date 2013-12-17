@@ -89,7 +89,7 @@ if (!isset($content_width)) {
 }
 
 /**
- * Количество фильмов в одной строке
+ * Количество фильмов в строке самого популярного
  */
 function countFilmsInRow() {
 	return 9;
