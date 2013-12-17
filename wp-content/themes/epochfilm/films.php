@@ -31,7 +31,7 @@ Template Name: Films Template
 	<ul>
 		<?php
 		$args = array(
-			'posts_per_page' 		=> 6,
+			'posts_per_page' 		=> countFilmsInRow(),
 			'category__not_in'	=> $notInCategory,
 			'meta_key' 			=> 'post_views_count',
 			'orderby' 			=> 'meta_value_num',

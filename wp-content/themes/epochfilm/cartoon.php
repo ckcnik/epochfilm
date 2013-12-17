@@ -32,7 +32,7 @@ Template Name: Cartoon Template
 	<ul>
 		<?php
 		$args = array(
-			'posts_per_page' 	=> 6,
+			'posts_per_page' 	=> countFilmsInRow(),
 			'category__in'		=> $haveInCategory,
 			'meta_key' 			=> 'post_views_count',
 			'orderby' 			=> 'meta_value_num',

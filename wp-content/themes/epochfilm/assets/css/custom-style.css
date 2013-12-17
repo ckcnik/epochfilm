@@ -202,16 +202,6 @@ time.year-film {
 	text-align: center;
 	display: block;
 }
-div.main-poster img {
-	padding: 4px;
-}
-
-div.main-poster a {
-	display: block;
-}
-div.main-poster img:hover {
-	outline: 1px solid;
-}
 
 /*		социальные кнопки		*/
 .pluso-more {
@@ -280,9 +270,10 @@ div.main-poster img:hover {
 .presentation li {
 	display: inline-block;
 	padding: 1px;
-	width: 156px;
+	width: 120px;
 	overflow: hidden;
 	font-size: 12px;
+	margin: 10px 0;
 }
 
 .presentation li header {
@@ -292,4 +283,44 @@ div.main-poster img:hover {
 .presentation li p {
 	text-align: center;
 	margin: 2px 0;
+}
+
+.presentation ul,
+ul.presentation {
+	/*background: #eee;*/
+	padding-left: 12px;
+}
+
+.presentation ul {
+	background:
+		url(../img/video-frame.png) top repeat-x,
+		url(../img/video-frame.png) bottom repeat-x;
+}
+
+div.main-poster img {
+	padding: 4px;
+	width: 100%;
+	height: 170px;
+}
+
+div.main-poster a {
+	display: block;
+	position: relative;
+}
+
+div.main-poster:hover img {
+	outline: 1px solid white;
+}
+
+div.main-poster:hover span.start-play {
+	visibility: visible;
+}
+div.main-poster span.start-play {
+	position: absolute;
+	background: 	url(../img/play-button.png) no-repeat;
+	height: 45px;
+	width: 45px;
+	top: 37%;
+	left: 30%;
+	visibility: hidden;
 }

@@ -87,3 +87,10 @@ function roots_display_sidebar()
 if (!isset($content_width)) {
 	$content_width = 1140;
 }
+
+/**
+ * Количество фильмов в одной строке
+ */
+function countFilmsInRow() {
+	return 9;
+}
