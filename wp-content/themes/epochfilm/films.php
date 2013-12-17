@@ -68,14 +68,27 @@ Template Name: Films Template
 	query_posts($args);
 	while (have_posts()) : the_post(); ?>
 		<?php get_template_part('templates/content', get_post_format()); ?>
-	<?php endwhile; wp_reset_query(); ?>
+	<?php endwhile; ?>
 </ul>
 
 <?php if ($wp_query->max_num_pages > 1) : ?>
 	<nav class="post-nav">
-		<ul class="pager">
-			<li class="previous"><?php next_posts_link(__('&larr; Older posts', 'roots')); ?></li>
-			<li class="next"><?php previous_posts_link(__('Newer posts &rarr;', 'roots')); ?></li>
-		</ul>
+		<?php
+		global $wp_query;
+		$big = 999999999; // need an unlikely integer
+		$args = array(
+			'base'			=> str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+			'format'		=> '/page/%#%/',
+			'total'			=> $wp_query->max_num_pages,
+			'current'		=> max(1, get_query_var('paged')),
+			'show_all'		=> true,
+			'prev_next'		=> True,
+			'prev_text'		=> __('«'),
+			'next_text'		=> __('»'),
+			'type'			=> 'plain',
+			'add_args'		=> False,
+			'add_fragment'	=> ''
+		); ?>
+		<?php echo paginate_links($args); ?>
 	</nav>
 <?php endif; ?>

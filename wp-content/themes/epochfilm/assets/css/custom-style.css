@@ -379,3 +379,43 @@ ul.presentation,
 .video-title h5 a:hover {
 	text-decoration: none;
 }
+
+/*		пэйджинг		*/
+nav.post-nav {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+span.current {
+	background: #181717;
+	border-color: #181717;
+	color: #f9f9f9;
+}
+
+nav.post-nav span {
+	text-decoration: none;
+	border: 1px solid #767575;
+	padding: 2px 7px;
+	margin-right: 5px;
+	display: inline-block;
+}
+
+nav.post-nav a {
+	text-decoration: none;
+	border: 1px solid #767575;
+	padding: 2px 7px;
+	margin-right: 5px;
+	display: inline-block;
+	color: #767575;
+}
+
+nav.post-nav a:hover {
+	background: #181717;
+	border-color: #181717;
+	color: #f9f9f9;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
