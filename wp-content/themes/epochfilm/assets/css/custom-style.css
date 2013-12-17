@@ -285,6 +285,7 @@ time.year-film {
 	overflow: hidden;
 	font-size: 12px;
 	margin: 10px 0;
+	opacity: 0.8;
 }
 
 .presentation li p {
@@ -327,9 +328,14 @@ div.main-poster span.start-play {
 	background: 	url(../img/play-button.png) no-repeat;
 	height: 45px;
 	width: 45px;
+	top: 37%;
+	left: 30%;
+	visibility: hidden;
+}
+
+li.new-film div.main-poster span.start-play {
 	top: 39%;
 	left: 37%;
-	visibility: hidden;
 }
 
 ul.presentation,
@@ -352,12 +358,12 @@ ul.presentation,
 	margin-top: 17px;
 }
 
-.presentation li.new-film img {
-	height: 220px;
+.presentation li:hover {
+	opacity: 1.0;
 }
 
-.video-title {
-	text-overflow: ellipsis;
+.presentation li.new-film img {
+	height: 220px;
 }
 
 .video-title h5 {
