@@ -7,7 +7,7 @@ body {
 }
 
 div.wrap {
-	min-height: 800px;
+	min-height: 900px;
 }
 
 /*		футер		*/
@@ -430,4 +430,50 @@ nav.post-nav a:hover {
 	-ms-transition: all 0.3s ease-out;
 	-o-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
+}
+
+/*		search-result page		*/
+#search-page li {
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+	background-color: #e7e7e7;
+	border-radius: 15px 0 15px 0;
+	overflow: hidden;
+	color: #444;
+}
+
+#search-page li a.search-poster {
+	display: block;
+	float: left;
+}
+#search-page li img {
+	width: 166px;
+}
+
+#search-page li div.film-info {
+	float: left;
+	width: 84.91%;
+	padding: 10px;
+}
+
+#search-page li div.film-info header {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#search-page li div.film-info header h5 {
+	margin: 0;
+}
+
+#search-page li div.film-info header a {
+	color: #444;
+}
+
+#search-page li div.film-info header a:hover {
+	text-decoration: none;
+}
+
+#film-content {
+	text-align: justify;
 }

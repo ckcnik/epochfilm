@@ -1,13 +1,26 @@
-<?php if (!have_posts()) : ?>
-	<div class="alert alert-warning">
+<h3 class=" headers"><?= roots_title()?></h3>
+	<ul id="search-page" >
+	<?php if (!have_posts()) : ?>
 		<?php _e('Sorry, no results were found.', 'roots'); ?>
-	</div>
-<?php endif; ?>
-
-<h3 class="widget-title headers">Найденное на сайте</h3>
-<ul class="presentation">
+	<?php endif; ?>
 	<?php while (have_posts()) : the_post(); ?>
-		<?php get_template_part('templates/content', get_post_format()); ?>
+		<?php
+		$custom_fields = get_post_custom($id);
+		?>
+		<li >
+			<a class="search-poster" href="<?php the_permalink(); ?>">
+				<img src="<?= $custom_fields['image_path'][0] ?>">
+			</a>
+			<div class="film-info">
+				<header >
+					<h5 class="headers"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+					<div class="year-film"><?= getCategory($id, 19); ?>, <?= getCategory($id, 18); ?></div>
+				</header>
+				<div id="film-content">
+					<?= !empty(get_the_content()) ? get_the_content() : "<div class='error'>нет описания к фильму</div>"; ?>
+				</div>
+			</div>
+		</li>
 	<?php endwhile; ?>
 </ul>
 
