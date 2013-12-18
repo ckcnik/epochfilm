@@ -357,6 +357,7 @@ ul.presentation,
 	border-radius: 5px;
 	margin-right: 14px;
 	margin-top: 17px;
+	position: relative;
 }
 
 .presentation li:hover {
@@ -366,6 +367,10 @@ ul.presentation,
 	-ms-transition: all 0.3s ease-out;
 	-o-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
+}
+
+.presentation li:hover .video-title h5{
+	white-space: normal;
 }
 
 .presentation li.new-film img {
@@ -378,6 +383,9 @@ ul.presentation,
 	margin: 0;
 	text-align: center;
 	font-weight: bold;
+	position: absolute;
+	z-index: 10;
+	width: 100%;
 }
 
 .video-title h5 a {
@@ -390,6 +398,10 @@ ul.presentation,
 
 .video-title h5 a:hover {
 	text-decoration: none;
+}
+
+li.new-film header {
+	height: 27px;
 }
 
 /*		пэйджинг		*/
@@ -441,6 +453,7 @@ nav.post-nav a:hover {
 	border-radius: 15px 0 15px 0;
 	overflow: hidden;
 	color: #444;
+	position: relative;
 }
 
 #search-page li a.search-poster {
@@ -470,10 +483,25 @@ nav.post-nav a:hover {
 	color: #444;
 }
 
-#search-page li div.film-info header a:hover {
+#search-page li div.film-info header .year-film a:hover {
 	text-decoration: none;
 }
 
+/*#search-page li div.film-info header h5 a:hover {*/
+	/*-webkit-transition: all 0.3s ease-out;*/
+	/*-moz-transition: all 0.3s ease-out;*/
+	/*-ms-transition: all 0.3s ease-out;*/
+	/*-o-transition: all 0.3s ease-out;*/
+	/*transition: all 0.3s ease-out;*/
+/*}*/
+
 #film-content {
 	text-align: justify;
+}
+
+.watch-button {
+	position: absolute;
+	z-index: 10;
+	bottom: 15px;
+	right: 20px;
 }

@@ -92,3 +92,25 @@ function getRelatedPosts($id)
 	}
 	return $returnedPosts;
 }
+
+/**
+ * Создает пейджинг
+ */
+function pagingCreate() {
+	global $wp_query;
+	$big = 999999999; // need an unlikely integer
+	$args = array(
+		'base'			=> str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+		'format'		=> '%#%',
+		'total'			=> $wp_query->max_num_pages,
+		'current'		=> max(1, get_query_var('paged')),
+		'show_all'		=> false,
+		'prev_next'		=> True,
+		'prev_text'		=> __('«'),
+		'next_text'		=> __('»'),
+		'type'			=> 'plain',
+		'add_args'		=> False,
+		'add_fragment'	=> ''
+	);
+	echo paginate_links($args);
+}

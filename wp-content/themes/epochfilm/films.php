@@ -44,7 +44,7 @@ $currentPage = $wp_query->get_queried_object_id();
 	<ul>
 		<?php
 		$args = array(
-			'posts_per_page' 		=> countFilmsInRow(),
+			'posts_per_page' 	=> countFilmsInRow(),
 			'category__not_in'	=> isset($notInCategory) ? $notInCategory : '',
 			'category__in'		=> isset($haveInCategory) ? $haveInCategory : '',
 			'meta_key' 			=> 'post_views_count',
@@ -79,7 +79,6 @@ $currentPage = $wp_query->get_queried_object_id();
 		'category__not_in'	=> isset($notInCategory) ? $notInCategory : '',
 		'category__in'		=> isset($haveInCategory) ? $haveInCategory : '',
 		'post_type'			=> 'post',
-		'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
 		'paged' => (get_query_var('paged')) ? get_query_var('paged') : $page,
 	);
 	query_posts($args);
@@ -90,22 +89,6 @@ $currentPage = $wp_query->get_queried_object_id();
 
 <?php if ($wp_query->max_num_pages > 1) : ?>
 	<nav class="post-nav">
-		<?php
-		global $wp_query;
-		$big = 999999999; // need an unlikely integer
-		$args = array(
-			'base'			=> str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-			'format'		=> '%#%',
-			'total'			=> $wp_query->max_num_pages,
-			'current'		=> max(1, get_query_var('paged')),
-			'show_all'		=> false,
-			'prev_next'		=> True,
-			'prev_text'		=> __('«'),
-			'next_text'		=> __('»'),
-			'type'			=> 'plain',
-			'add_args'		=> False,
-			'add_fragment'	=> ''
-		); ?>
-		<?php echo paginate_links($args); ?>
+		<?php pagingCreate(); ?>
 	</nav>
 <?php endif; ?>
