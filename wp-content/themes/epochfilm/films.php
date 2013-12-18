@@ -3,13 +3,16 @@
 Template Name: Films Template
 */
 ?>
+<?php
+$filmsPageId = 4;
+$cartoonsPageId = 2;
+$mainPageId = 28;
+$currentPage = $wp_query->get_queried_object_id();
+?>
+<?php if ($currentPage != $mainPageId) : ?>
 <div class="sub-menu">
 <ul>
 	<?php
-	$filmsPageId = 4;
-	$cartoonsPageId = 2;
-	$currentPage = $wp_query->get_queried_object_id();
-
 	if ($currentPage == $filmsPageId) {
 		$notInCategory = '194';
 	} elseif($currentPage == $cartoonsPageId) {
@@ -28,13 +31,14 @@ Template Name: Films Template
 		'taxonomy'		=> 'category',
 		'pad_counts'	=> false
 	);
-	$genreCategories = get_categories( $args ) ?>
+	$genreCategories = get_categories( $args )
+	?>
 	<?php foreach ($genreCategories as $catObj):?>
 		<li><a href="<?= get_category_link( $catObj->cat_ID)?>"><?= $catObj->name?></a></li>
 	<?php endforeach;?>
 </ul>
 </div>
-
+<?php endif; ?>
 <div class="presentation">
 	<h3 class="headers">Самое просматриваемое</h3>
 	<ul>
@@ -74,7 +78,9 @@ Template Name: Films Template
 	$args = array(
 		'category__not_in'	=> isset($notInCategory) ? $notInCategory : '',
 		'category__in'		=> isset($haveInCategory) ? $haveInCategory : '',
-		'post_type'			=> 'post'
+		'post_type'			=> 'post',
+		'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
+		'paged' => (get_query_var('paged')) ? get_query_var('paged') : $page,
 	);
 	query_posts($args);
 	while (have_posts()) : the_post(); ?>
@@ -89,10 +95,10 @@ Template Name: Films Template
 		$big = 999999999; // need an unlikely integer
 		$args = array(
 			'base'			=> str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-			'format'		=> '/page/%#%/',
+			'format'		=> '%#%',
 			'total'			=> $wp_query->max_num_pages,
 			'current'		=> max(1, get_query_var('paged')),
-			'show_all'		=> true,
+			'show_all'		=> false,
 			'prev_next'		=> True,
 			'prev_text'		=> __('«'),
 			'next_text'		=> __('»'),
