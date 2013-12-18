@@ -6,7 +6,16 @@ Template Name: Films Template
 <div class="sub-menu">
 <ul>
 	<?php
-	$notInCategory = '194';
+	$filmsPageId = 4;
+	$cartoonsPageId = 2;
+	$currentPage = $wp_query->get_queried_object_id();
+
+	if ($currentPage == $filmsPageId) {
+		$notInCategory = '194';
+	} elseif($currentPage == $cartoonsPageId) {
+		$haveInCategory = '194';
+	}
+
 	$args = array(
 		'type'			=> 'post',
 		'child_of'		=> 0,
@@ -32,7 +41,8 @@ Template Name: Films Template
 		<?php
 		$args = array(
 			'posts_per_page' 		=> countFilmsInRow(),
-			'category__not_in'	=> $notInCategory,
+			'category__not_in'	=> isset($notInCategory) ? $notInCategory : '',
+			'category__in'		=> isset($haveInCategory) ? $haveInCategory : '',
 			'meta_key' 			=> 'post_views_count',
 			'orderby' 			=> 'meta_value_num',
 			'order' 			=> 'DESC',
@@ -62,7 +72,8 @@ Template Name: Films Template
 <ul class="presentation">
 	<?php
 	$args = array(
-		'category__not_in'	=> $notInCategory,
+		'category__not_in'	=> isset($notInCategory) ? $notInCategory : '',
+		'category__in'		=> isset($haveInCategory) ? $haveInCategory : '',
 		'post_type'			=> 'post'
 	);
 	query_posts($args);
