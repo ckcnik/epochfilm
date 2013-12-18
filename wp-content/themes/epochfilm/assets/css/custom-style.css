@@ -285,7 +285,7 @@ time.year-film {
 	width: 120px;
 	overflow: hidden;
 	font-size: 12px;
-	margin: 10px 0;
+	margin: 13px 0 10px 0;
 	opacity: 0.8;
 }
 
@@ -361,6 +361,11 @@ ul.presentation,
 
 .presentation li:hover {
 	opacity: 1.0;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
 }
 
 .presentation li.new-film img {

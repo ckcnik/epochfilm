@@ -14,7 +14,7 @@ $currentPage = $wp_query->get_queried_object_id();
 <ul>
 	<?php
 	if ($currentPage == $filmsPageId) {
-		$notInCategory = '194';
+		$notInCategory = '194,193';
 	} elseif($currentPage == $cartoonsPageId) {
 		$haveInCategory = '194';
 	}
@@ -27,7 +27,7 @@ $currentPage = $wp_query->get_queried_object_id();
 		'order'			=> 'ASC',
 		'hide_empty'	=> 1,
 		'hierarchical'	=> 1,
-		'exclude'		=> $notInCategory,
+		'exclude'		=> isset($notInCategory) ? $notInCategory : '194',
 		'taxonomy'		=> 'category',
 		'pad_counts'	=> false
 	);
