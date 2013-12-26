@@ -483,17 +483,14 @@ nav.post-nav a:hover {
 	color: #444;
 }
 
-#search-page li div.film-info header .year-film a:hover {
-	text-decoration: none;
+#search-page li div.film-info header .headers a {
+	display: inline-block;
+	position: relative;
 }
 
-/*#search-page li div.film-info header h5 a:hover {*/
-	/*-webkit-transition: all 0.3s ease-out;*/
-	/*-moz-transition: all 0.3s ease-out;*/
-	/*-ms-transition: all 0.3s ease-out;*/
-	/*-o-transition: all 0.3s ease-out;*/
-	/*transition: all 0.3s ease-out;*/
-/*}*/
+#search-page li div.film-info header a:hover {
+	text-decoration: none;
+}
 
 #film-content {
 	text-align: justify;
@@ -504,4 +501,12 @@ nav.post-nav a:hover {
 	z-index: 10;
 	bottom: 15px;
 	right: 20px;
+}
+
+.decor {
+	background: #000000;
+	height: 1px;
+	position: absolute;
+	bottom: -2px;
+	left: 100%;
 }

@@ -13,7 +13,12 @@
 			</a>
 			<div class="film-info">
 				<header >
-					<h5 class="headers"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+					<h5 class="headers">
+						<a href="<?php the_permalink(); ?>">
+							<?php the_title(); ?>
+							<span class="decor"></span>
+						</a>
+					</h5>
 					<div class="year-film"><?= getCategory($id, 19); ?>, <?= getCategory($id, 18); ?></div>
 				</header>
 				<div id="film-content">

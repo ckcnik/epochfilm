@@ -52,6 +52,18 @@ $(document).ready(function () {
 			}, 500);
 		}
 	});
+
+	/**
+	 * Hover event on the film title on the search page
+	 */
+	$('#search-page li div.film-info header .headers a').hover(
+		function(){
+			$(this).find('span').stop().css({left:'0%'}).animate({width:'100%'},450);
+		},
+		function(){
+			$(this).find('span').stop().animate({width:'0%', left:'100%'}, 450);
+		}
+	);
 });
 
 /**
