@@ -387,7 +387,7 @@ ul.presentation,
 }
 
 .presentation li.new-film .main-poster {
-	background: #4b4b4b;
+	background: #4b4b4b url(../img/loading-folio.gif) 50% 50% no-repeat;
 }
 
 .video-title h5 {
