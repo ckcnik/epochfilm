@@ -88,14 +88,14 @@
 								<?= !empty(get_the_content()) ? get_the_content() : "<div class='error'>нет описания к фильму</div>"; ?>
 							</div>
 						</div>
-						<label id="expand-film-description" class="show-more">Show More</label>
+						<a href="#" id="expand-film-description" class="show-more">Подробнее</a>
 					</div>
 					<div class="clear"></div>
 				</div>
 			</div>
 			<div id="right-column-details" class="right-column-details box-shadow">
 				<?php $relatedPosts = getRelatedPosts($id); ?>
-				<div class="details-header"><h3>Related Movies</h3></div>
+				<div class="details-header"><h3>Похожее видео</h3></div>
 				<div class="wrapper-related-movies">
 					<?php if ( !empty($relatedPosts) ) : ?>
 					<?php foreach ($relatedPosts as $itemPost ) : ?>

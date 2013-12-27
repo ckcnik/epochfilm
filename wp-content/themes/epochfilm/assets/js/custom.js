@@ -51,6 +51,7 @@ $(document).ready(function () {
 				height: rightColumnHeiht - diffHeight
 			}, 500);
 		}
+		return false;
 	});
 
 	/**

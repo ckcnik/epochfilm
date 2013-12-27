@@ -10,6 +10,14 @@ div.wrap {
 	min-height: 900px;
 }
 
+a {
+	color: #000000;
+}
+
+a:hover {
+	color: #616061;
+}
+
 /*		футер		*/
 footer {
 	background: url(../img/footer-tail.jpg) 0 0 repeat #1c1c1c;
@@ -479,8 +487,8 @@ nav.post-nav a:hover {
 	margin: 0;
 }
 
-#search-page li div.film-info header a {
-	color: #444;
+#search-page li div.film-info header .headers a:hover {
+	text-decoration: none;
 }
 
 #search-page li div.film-info header .headers a {
@@ -489,7 +497,7 @@ nav.post-nav a:hover {
 }
 
 #search-page li div.film-info header a:hover {
-	text-decoration: none;
+	color: #616061;
 }
 
 #film-content {
