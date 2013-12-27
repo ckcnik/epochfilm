@@ -256,7 +256,6 @@ time.year-film {
 /*		строка поиска		*/
 .navbar-collapse .search-form {
 	float: right;
-	width: 400px;
 	margin-top: 10px;
 }
 
@@ -264,6 +263,7 @@ time.year-film {
 .sub-menu {
 	background-color: #e7e7e7;
 	padding: 5px;
+	border-radius: 0 0 15px 15px;
 }
 
 .sub-menu ul {
@@ -276,11 +276,34 @@ time.year-film {
 	margin-left: 10px;
 	margin-bottom: 3px;
 	border: 1px solid;
-	padding: 0 3px;
+	padding: 0 0 0 10px;
+	width: 190px;
+	border-radius: 10px;
+	background: #e4e4e4 url(../img/header.png);
+}
+.sub-menu ul li a {
+	display: block;
+	position: relative;
+	color: white;
+}
+
+.sub-menu ul li a span {
+	position: absolute;
+	right: 0;
+	/*display: block;*/
+	padding: 0 5px;
+	background: green;
+	width: 40px;
+	border-radius: 10px;
+	text-align: right;
 }
 
 .navbar {
 	margin-bottom: 0;
+}
+
+#menu-primary-navigation li.active a {
+	border-radius: 60px 0;
 }
 
 /*		фильм на главной		*/
@@ -294,6 +317,9 @@ time.year-film {
 	overflow: hidden;
 	font-size: 12px;
 	margin: 13px 0 10px 0;
+}
+
+.presentation li .main-poster {
 	opacity: 0.8;
 }
 
@@ -361,14 +387,14 @@ ul.presentation,
 
 .presentation li.new-film {
 	width: 170px;
-	border: 2px solid #ddd;
+	border: 2px solid #3b8820;
 	border-radius: 5px;
 	margin-right: 14px;
 	margin-top: 17px;
 	position: relative;
 }
 
-.presentation li:hover {
+.presentation li:hover .main-poster {
 	opacity: 1.0;
 	-webkit-transition: all 0.3s ease-out;
 	-moz-transition: all 0.3s ease-out;
@@ -391,7 +417,7 @@ ul.presentation,
 }
 
 .video-title h5 {
-	background: #e4e4e4 url(../img/header.png);
+	background: radial-gradient(#9ACE73, #3b8820);
 	white-space: nowrap;
 	margin: 0;
 	text-align: center;
@@ -407,6 +433,7 @@ ul.presentation,
 	display: block;
 	text-overflow: ellipsis;
 	overflow: hidden;
+	text-shadow: 0 0 2px #000000;
 }
 
 .video-title h5 a:hover {
@@ -526,7 +553,33 @@ nav.post-nav a:hover {
 
 /*		форма поиска		*/
 form.search-form .form-control:focus {
-	border-color: white;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255, 255, 255, 0.6);
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255, 255, 255, 0.6);
+	border-color: #3b8820;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(73, 210, 40, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(73, 210, 40, 0.6);
+}
+
+.search-submit {
+	border: none;
+	background: url(../img/search-button.png) no-repeat;
+	background-position: left top;
+	width: 19px;
+	height: 19px;
+	position: absolute;
+	right: 5px;
+	top: 8px;
+}
+
+.search-submit:hover {
+	border: none;
+	background-position: left bottom;
+	background-color: white;
+}
+
+.input-group {
+	position: relative;
+}
+
+.search-form .input-group input.search-field {
+	border-radius: 40px;
+	width: 300px;
 }

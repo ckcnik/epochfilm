@@ -34,7 +34,7 @@ $currentPage = $wp_query->get_queried_object_id();
 	$genreCategories = get_categories( $args )
 	?>
 	<?php foreach ($genreCategories as $catObj):?>
-		<li><a href="<?= get_category_link( $catObj->cat_ID)?>"><?= $catObj->name?></a></li>
+		<li><a href="<?= get_category_link( $catObj->cat_ID)?>"><?= $catObj->name?> <span><?php echo get_category($catObj->cat_ID)->category_count; ?></span></a></li>
 	<?php endforeach;?>
 </ul>
 </div>
