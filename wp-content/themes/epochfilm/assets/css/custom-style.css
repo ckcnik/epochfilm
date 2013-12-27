@@ -381,8 +381,13 @@ ul.presentation,
 	white-space: normal;
 }
 
+.presentation li.new-film .main-poster a,
 .presentation li.new-film img {
 	height: 220px;
+}
+
+.presentation li.new-film .main-poster {
+	background: #4b4b4b;
 }
 
 .video-title h5 {

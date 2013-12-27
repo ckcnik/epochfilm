@@ -65,6 +65,8 @@ $(document).ready(function () {
 			$(this).find('span').stop().animate({width:'0%', left:'100%'}, 450);
 		}
 	);
+
+	afterLoad(); // включить эффект последовательной загрузки картинок на главной
 });
 
 /**
@@ -88,4 +90,24 @@ function correctHeightDetailsBlock() {
  */
 function removePlusoLink() {
 	$('.pluso-more').remove();
+}
+
+/**
+ * Эффект поочередной подгрузки картинок
+ */
+function afterLoad() {
+	jQuery(function() {
+		jQuery('.presentation li.new-film div.main-poster a img').hide();
+	});
+
+	jQuery(window).bind('load', function() {
+		var i = 1;
+		var imgs = jQuery('.presentation li.new-film div.main-poster a img').length;
+		var int = setInterval(function() {
+			//console.log(i); check to make sure interval properly stops
+			if(i >= imgs) clearInterval(int);
+			jQuery('.presentation li.new-film div.main-poster a img:hidden').eq(0).fadeIn(400);
+			i++;
+		}, 10);
+	});
 }
