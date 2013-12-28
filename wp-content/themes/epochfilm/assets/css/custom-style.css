@@ -559,20 +559,7 @@ form.search-form .form-control:focus {
 }
 
 .search-submit {
-	border: none;
-	background: url(../img/search-button.png) no-repeat;
-	background-position: left top;
-	width: 19px;
-	height: 19px;
-	position: absolute;
-	right: 5px;
-	top: 8px;
-}
-
-.search-submit:hover {
-	border: none;
-	background-position: left bottom;
-	background-color: white;
+display: none;
 }
 
 .input-group {
@@ -582,4 +569,23 @@ form.search-form .form-control:focus {
 .search-form .input-group input.search-field {
 	border-radius: 40px;
 	width: 300px;
+}
+
+i.icon-search {
+	font-size: 27px;
+	font-family: FontAwesome;
+	position: absolute;
+	right: 10px;
+	top: -3px;
+	color: #cbcacb;
+	font-style: normal;
+}
+
+.icon-search:before {
+	content: "\f002";
+}
+
+i.icon-search:hover {
+	color: #6EB356;
+	cursor: pointer;
 }

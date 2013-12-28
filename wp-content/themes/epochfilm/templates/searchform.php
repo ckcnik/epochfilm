@@ -2,8 +2,7 @@
   <div class="input-group">
     <input type="search" value="<?php if (is_search()) { echo get_search_query(); } ?>" name="s" class="search-field form-control" placeholder="<?php _e('Search', 'roots'); ?> ">
     <label class="hide"><?php _e('Search for:', 'roots'); ?></label>
-<!--    <span class="input-group-btn">-->
       <button type="submit" class="search-submit"></button>
-<!--    </span>-->
+	  <i class="icon-search"></i>
   </div>
 </form>
