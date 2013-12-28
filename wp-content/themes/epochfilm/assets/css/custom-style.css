@@ -90,7 +90,7 @@ footer .row p {
 .right-column-details h3 {
 	margin: 0;
 	padding: 12px 10px;
-	font-size: 12px;
+	font-size: 16px;
 }
 
 .left-column-details h3,
@@ -258,6 +258,7 @@ time.year-film {
 	font-weight: 900;
 	text-transform: uppercase;
 	color: #444;
+	margin-left: 10px;
 }
 
 /*		строка поиска		*/
@@ -311,7 +312,16 @@ time.year-film {
 	border-radius: 60px 0;
 }
 
-/*		фильм на главной		*/
+/*		фильмы на главной		*/
+.films-wrapper {
+	background: #eee;
+	overflow: hidden;
+}
+
+.most-popular {
+	-webkit-box-shadow: 1px 2px 5px #131211;
+	box-shadow: 1px 2px 30px #131211;
+}
 .presentation {
 	list-style: none;
 }
@@ -340,8 +350,8 @@ ul.presentation {
 
 .presentation ul {
 	background:
-		url(../img/video-frame.png) top repeat-x,
-		url(../img/video-frame.png) bottom repeat-x;
+	url(../img/video-frame.png) top repeat-x,
+	url(../img/video-frame.png) bottom repeat-x;
 }
 
 div.main-poster img {
@@ -376,11 +386,6 @@ div.main-poster span.start-play {
 li.new-film div.main-poster span.start-play {
 	top: 39%;
 	left: 37%;
-}
-
-ul.presentation,
-.widget-title{
-	background: #eee;
 }
 
 .widget-title {
