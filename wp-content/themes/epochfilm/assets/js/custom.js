@@ -74,6 +74,8 @@ $(document).ready(function () {
 	$('.icon-search').on('click', function(){
 		$('.search-form').submit();
 	});
+
+	carouselCreate(); // подключаем карусель
 });
 
 /**
@@ -117,4 +119,45 @@ function afterLoad() {
 			i++;
 		}, 10);
 	});
+}
+
+/**
+ * Карусель для популярных фильмосов
+ */
+function carouselCreate() {
+
+	var jcarousel = $('.jcarousel');
+
+	jcarousel
+		.on('jcarousel:reload jcarousel:create')
+		.jcarousel({
+			wrap: 'circular'
+		});
+
+	$('.jcarousel-control-prev')
+		.jcarouselControl({
+			target: '-=4'
+		});
+
+	$('.jcarousel-control-next')
+		.jcarouselControl({
+			target: '+=4'
+		});
+
+	$('.jcarousel-pagination')
+		.on('jcarouselpagination:active', 'a', function() {
+			$(this).addClass('active');
+		})
+		.on('jcarouselpagination:inactive', 'a', function() {
+			$(this).removeClass('active');
+		})
+		.on('click', function(e) {
+			e.preventDefault();
+		})
+		.jcarouselPagination({
+			perPage: 1,
+			item: function(page) {
+				return '<a href="#' + page + '">' + page + '</a>';
+			}
+		});
 }

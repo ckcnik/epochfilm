@@ -92,5 +92,5 @@ if (!isset($content_width)) {
  * Количество фильмов в строке самого популярного
  */
 function countFilmsInRow() {
-	return 9;
+	return 20;
 }
