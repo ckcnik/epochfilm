@@ -222,6 +222,13 @@ time.year-film {
 	display: none !important;
 }
 
+.pluso-vkontakte:hover,
+.pluso-odnoklassniki:hover,
+.pluso-twitter:hover,
+.pluso-google:hover {
+	background-image: url(../img/07.png) !important;
+}
+
 /*		классы общего использования		*/
 .box-shadow {
 	-moz-box-shadow: 1px 2px 5px #131211;
@@ -279,7 +286,7 @@ time.year-film {
 	padding: 0 0 0 10px;
 	width: 190px;
 	border-radius: 10px;
-	background: #e4e4e4 url(../img/header.png);
+	background: #e4e4e4 url(cheader.png);
 }
 .sub-menu ul li a {
 	display: block;
@@ -569,6 +576,7 @@ display: none;
 .search-form .input-group input.search-field {
 	border-radius: 40px;
 	width: 300px;
+	padding-right: 32px;
 }
 
 i.icon-search {
