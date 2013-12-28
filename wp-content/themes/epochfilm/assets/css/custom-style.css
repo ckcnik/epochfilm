@@ -337,7 +337,7 @@ time.year-film {
 	margin: 13px 5px 10px 0;
 }
 
-.presentation li .main-poster {
+.presentation li.new-film .main-poster {
 	opacity: 0.8;
 }
 
@@ -361,7 +361,6 @@ div.main-poster a {
 	position: relative;
 }
 
-div.main-poster:hover span.start-play,
 li.new-film:hover span.start-play{
 	visibility: visible;
 }
@@ -386,7 +385,6 @@ li.new-film div.main-poster span.start-play {
 }
 
 .widget-title {
-	display: inline-block;
 	border-radius: 5px 5px 0 0;
 	padding: 10px 10px 2px 10px;
 	margin: 20px 0 0 0;
@@ -401,7 +399,7 @@ li.new-film div.main-poster span.start-play {
 	position: relative;
 }
 
-.presentation li:hover .main-poster {
+.presentation li.new-film:hover .main-poster {
 	opacity: 1.0;
 	-webkit-transition: all 0.3s ease-out;
 	-moz-transition: all 0.3s ease-out;
@@ -688,4 +686,11 @@ i.icon-search:hover {
 	-ms-transform: rotate(3deg);
 	-o-transform: rotate(3deg);
 	transform: rotate(3deg);
+}
+
+.jcarousel li:hover {
+	outline: 2px solid green;
+	-moz-box-shadow: 1px 2px 5px #131211;
+	-webkit-box-shadow: 1px 2px 5px #131211;
+	box-shadow: 1px 2px 5px #131211;
 }
