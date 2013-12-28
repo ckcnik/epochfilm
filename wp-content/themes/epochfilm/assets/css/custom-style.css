@@ -286,7 +286,6 @@ time.year-film {
 	padding: 0 0 0 10px;
 	width: 190px;
 	border-radius: 10px;
-	background: #e4e4e4 url(cheader.png);
 }
 .sub-menu ul li a {
 	display: block;
@@ -297,7 +296,6 @@ time.year-film {
 .sub-menu ul li a span {
 	position: absolute;
 	right: 0;
-	/*display: block;*/
 	padding: 0 5px;
 	background: green;
 	width: 40px;
