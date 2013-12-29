@@ -298,7 +298,9 @@ if (!$error && isset($_POST['films'])) {
                                 $directors = explode(',', trim($kinopoisk['params']['режиссер']));
                                 foreach($directors as $director) {
                                     $director = trim($director);
-                                    $categoryIds[] = getCategoryId($director, 21);
+                                    if ($director != '...') {
+                                        $categoryIds[] = getCategoryId($director, 21);
+                                    }
                                 }
 
                                 $post = get_page_by_title($kinopoisk['ruName'], 'ARRAY_A', 'post');
