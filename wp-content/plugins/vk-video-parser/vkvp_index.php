@@ -264,9 +264,15 @@ if (!$error && isset($_POST['films'])) {
                                 // Категории жанров
                                 $genres = explode('...', trim($kinopoisk['params']['жанр']));
                                 $genres = explode(',', trim($genres[0]));
+
+                                $genreParentCategory = 3;
+                                if (in_array('мультфильм', $genres)) {
+                                    $genreParentCategory = 610;
+                                }
+
                                 foreach($genres as $genre) {
                                     $genre = mb_ucfirst(strtolower(trim($genre)));
-                                    $categoryIds[] = getCategoryId($genre, 3);
+                                    $categoryIds[] = getCategoryId($genre, $genreParentCategory);
                                 }
 
                                 // Категории стран
