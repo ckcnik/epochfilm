@@ -66,8 +66,27 @@ function rus2translit($string) {
     return strtr($string, $converter);
 }
 
-function getCategoryId($catName, $parentCat = 1) {
-    $catId = get_cat_ID($catName);
+function getCategoryId($catName, $parentCat) {
+    $args = array(
+        'type'          => 'post',
+        'child_of'      => 0,
+        'parent'        => $parentCat,
+        'orderby'       => 'name',
+        'order'         => 'ASC',
+        'hide_empty'    => 0,
+        'hierarchical'  => 1,
+        'taxonomy'      => 'category',
+        'pad_counts'    => false
+    );
+    $categories = get_categories($args);
+
+    $catId = 0;
+    foreach($categories as $category) {
+        if ($category->name == $catName) {
+            $catId = $category->term_id;
+        }
+    }
+
     if (!$catId) {
         $catId = wp_insert_category(array(
             'cat_name' => $catName,
