@@ -207,8 +207,8 @@ if (!$error && isset($_POST['films'])) {
                                 }
 
                                 // Название
-                                $kinopoisk['ruName'] = trim($pq->find('#headerFilm h1')->text());
-                                $kinopoisk['engName'] = trim($pq->find('#headerFilm span')->text());
+                                $kinopoisk['ruName'] = trim($pq->find('#headerFilm h1')->clone()->children()->remove()->end()->text());
+                                $kinopoisk['engName'] = trim($pq->find('#headerFilm span[itemprop="alternativeHeadline"]')->text());
 
                                 // Код рейтинга
                                 $kinopoisk['rating'] = "<img src='http://rating.kinopoisk.ru/{$kinopoisk['id']}.gif' border='0'/>";
@@ -372,11 +372,7 @@ if (!$error && isset($_POST['films'])) {
                 <tr valign="top">
                     <td colspan="2">
                         <label for="films">Фильмы (каждое название с новой сторки)</label><br/>
-                        <textarea id="films" name="films" rows="10" cols="50">Побег из Шоушенка (1994)
-Зеленая миля (1999)
-Форрест Гамп (1994)
-Intouchables (2011)
-2001 The Fast and the Furious</textarea>
+                        <textarea id="films" name="films" rows="10" cols="50"></textarea>
                     </td>
                 </tr>
             </table>
