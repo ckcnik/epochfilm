@@ -133,6 +133,7 @@ if (!$error && isset($_POST['films'])) {
                                 'actors' => '',
                                 'ruName' => '',
                                 'engName' => '',
+                                'rating' => '',
                             );
                             $imdb = array(
                                 'storyline' => '',
@@ -208,6 +209,9 @@ if (!$error && isset($_POST['films'])) {
                                 // Название
                                 $kinopoisk['ruName'] = trim($pq->find('#headerFilm h1')->text());
                                 $kinopoisk['engName'] = trim($pq->find('#headerFilm span')->text());
+
+                                // Код рейтинга
+                                $kinopoisk['rating'] = "<img src='http://rating.kinopoisk.ru/{$kinopoisk['id']}.gif' border='0'/>";
                             }
                             // </kinopoisk>
 
@@ -313,22 +317,24 @@ if (!$error && isset($_POST['films'])) {
                                         'post_name' => rus2translit(strtolower($kinopoisk['ruName'])),
                                         'post_title' => $kinopoisk['ruName'],
                                     ));
-                                } else {
-                                    $postId = $post['ID'];
-                                }
 
-                                // Заполнение параметрами
-                                if ($postId) {
                                     update_post_meta($postId, 'kinopoisk_id', $kinopoisk['id']);
                                     update_post_meta($postId, 'eng_name', $kinopoisk['engName']);
                                     update_post_meta($postId, 'image_path', $kinopoisk['imagePath']);
                                     update_post_meta($postId, 'image_file_name', $kinopoisk['imageFileName']);
-                                    update_post_meta($postId, 'rating_plugin_HTML', $imdb['ratingPluginHTML']);
-                                    update_post_meta($postId, 'vk_player_url', $playerUrl);
                                     update_post_meta($postId, 'imdb_film_url', $imdb['filmUrl']);
                                     update_post_meta($postId, 'search_query', $film);
                                     update_post_meta($postId, 'time', $kinopoisk['params']['время']);
                                     update_post_meta($postId, 'age', $kinopoisk['params']['возраст']);
+                                    update_post_meta($postId, 'kinopoisk_rating', $kinopoisk['rating']);
+                                    update_post_meta($postId, 'rating_plugin_HTML', $imdb['ratingPluginHTML']);
+
+                                } else {
+                                    $postId = $post['ID'];
+                                }
+
+                                if ($postId) {
+                                    update_post_meta($postId, 'vk_player_url', $playerUrl);
                                 }
                             }
 
