@@ -13,8 +13,11 @@ add_theme_support('jquery-cdn'); // Enable to load jQuery from the Google CDN
  */
 define('GOOGLE_ANALYTICS_ID', ''); // UA-XXXXX-Y (Note: Universal Analytics only, not Classic Analytics)
 define('POST_EXCERPT_LENGTH', 40); // Length in words for excerpt_length filter (http://codex.wordpress.org/Plugin_API/Filter_Reference/excerpt_length)
+// логин и пароль для авторизаии в vk
 define('VK_LOGIN', '+380990513276');
 define('VK_PASS', 'utRJkt0EWW');
+// id приложения для комментариев vk
+define('VK_APP_ID', '4100851');
 
 /**
  * .main classes
