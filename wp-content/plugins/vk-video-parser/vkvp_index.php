@@ -133,6 +133,7 @@ if (!$error && isset($_POST['films'])) {
                                 'actors' => '',
                                 'ruName' => '',
                                 'engName' => '',
+                                'rating' => '',
                             );
                             $imdb = array(
                                 'storyline' => '',
@@ -206,8 +207,11 @@ if (!$error && isset($_POST['films'])) {
                                 }
 
                                 // Название
-                                $kinopoisk['ruName'] = trim($pq->find('#headerFilm h1')->text());
-                                $kinopoisk['engName'] = trim($pq->find('#headerFilm span')->text());
+                                $kinopoisk['ruName'] = trim($pq->find('#headerFilm h1')->clone()->children()->remove()->end()->text());
+                                $kinopoisk['engName'] = trim($pq->find('#headerFilm span[itemprop="alternativeHeadline"]')->text());
+
+                                // Код рейтинга
+                                $kinopoisk['rating'] = "<img src='http://rating.kinopoisk.ru/{$kinopoisk['id']}.gif' border='0'/>";
                             }
                             // </kinopoisk>
 
@@ -264,9 +268,15 @@ if (!$error && isset($_POST['films'])) {
                                 // Категории жанров
                                 $genres = explode('...', trim($kinopoisk['params']['жанр']));
                                 $genres = explode(',', trim($genres[0]));
+
+                                $genreParentCategory = 3;
+                                if (in_array('мультфильм', $genres)) {
+                                    $genreParentCategory = 610;
+                                }
+
                                 foreach($genres as $genre) {
                                     $genre = mb_ucfirst(strtolower(trim($genre)));
-                                    $categoryIds[] = getCategoryId($genre, 3);
+                                    $categoryIds[] = getCategoryId($genre, $genreParentCategory);
                                 }
 
                                 // Категории стран
@@ -292,7 +302,9 @@ if (!$error && isset($_POST['films'])) {
                                 $directors = explode(',', trim($kinopoisk['params']['режиссер']));
                                 foreach($directors as $director) {
                                     $director = trim($director);
-                                    $categoryIds[] = getCategoryId($director, 21);
+                                    if ($director != '...') {
+                                        $categoryIds[] = getCategoryId($director, 21);
+                                    }
                                 }
 
                                 $post = get_page_by_title($kinopoisk['ruName'], 'ARRAY_A', 'post');
@@ -305,22 +317,24 @@ if (!$error && isset($_POST['films'])) {
                                         'post_name' => rus2translit(strtolower($kinopoisk['ruName'])),
                                         'post_title' => $kinopoisk['ruName'],
                                     ));
-                                } else {
-                                    $postId = $post['ID'];
-                                }
 
-                                // Заполнение параметрами
-                                if ($postId) {
                                     update_post_meta($postId, 'kinopoisk_id', $kinopoisk['id']);
                                     update_post_meta($postId, 'eng_name', $kinopoisk['engName']);
                                     update_post_meta($postId, 'image_path', $kinopoisk['imagePath']);
                                     update_post_meta($postId, 'image_file_name', $kinopoisk['imageFileName']);
-                                    update_post_meta($postId, 'rating_plugin_HTML', $imdb['ratingPluginHTML']);
-                                    update_post_meta($postId, 'vk_player_url', $playerUrl);
                                     update_post_meta($postId, 'imdb_film_url', $imdb['filmUrl']);
                                     update_post_meta($postId, 'search_query', $film);
                                     update_post_meta($postId, 'time', $kinopoisk['params']['время']);
                                     update_post_meta($postId, 'age', $kinopoisk['params']['возраст']);
+                                    update_post_meta($postId, 'kinopoisk_rating', $kinopoisk['rating']);
+                                    update_post_meta($postId, 'rating_plugin_HTML', $imdb['ratingPluginHTML']);
+
+                                } else {
+                                    $postId = $post['ID'];
+                                }
+
+                                if ($postId) {
+                                    update_post_meta($postId, 'vk_player_url', $playerUrl);
                                 }
                             }
 
@@ -358,11 +372,7 @@ if (!$error && isset($_POST['films'])) {
                 <tr valign="top">
                     <td colspan="2">
                         <label for="films">Фильмы (каждое название с новой сторки)</label><br/>
-                        <textarea id="films" name="films" rows="10" cols="50">Побег из Шоушенка (1994)
-Зеленая миля (1999)
-Форрест Гамп (1994)
-Intouchables (2011)
-2001 The Fast and the Furious</textarea>
+                        <textarea id="films" name="films" rows="10" cols="50"></textarea>
                     </td>
                 </tr>
             </table>
