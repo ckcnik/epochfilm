@@ -52,34 +52,17 @@ if (!$error && isset($_POST['films'])) {
         $url_vk_video = "https://api.vk.com/method/video.search?access_token={$access_token}";
 
         // авторизация на kinopoisk
-        if ($curl = curl_init()) {
-            curl_setopt($curl, CURLOPT_URL, "http://www.kinopoisk.ru/login/");
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36");
-            curl_setopt($curl, CURLOPT_AUTOREFERER, true);
-            curl_setopt($curl, CURLOPT_POST, true);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, array(
-                'shop_user[login]' => get_option('vkvp_kinopisk_login'),
-                'shop_user[pass]' => get_option('vkvp_kinopisk_password'),
-                'shop_user[mem]' => 'on',
-                'auth' => '',
-            ));
-            curl_setopt($curl, CURLOPT_COOKIEJAR, __DIR__ . '/cookies.txt');
-            curl_setopt($curl, CURLOPT_COOKIEFILE, __DIR__ . '/cookies.txt');
-            $kinopoiskLogin = curl_exec($curl);
-            curl_close($curl);
-        }
+		curlKinopoiskAuth();
 
         // авторизация на imdb
         if ($curl = curl_init()) {
             curl_setopt($curl, CURLOPT_URL, "https://secure.imdb.com/oauth/login?origurl=http://www.imdb.com/&show_imdb_panel=1");
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36");
+            curl_setopt($curl, CURLOPT_USERAGENT, USERAGENT);
             curl_setopt($curl, CURLOPT_AUTOREFERER, true);
-            curl_setopt($curl, CURLOPT_COOKIEJAR, __DIR__ . '/cookies.txt');
-            curl_setopt($curl, CURLOPT_COOKIEFILE, __DIR__ . '/cookies.txt');
+            curl_setopt($curl, CURLOPT_COOKIEJAR, COOKIES_FILE_PATH);
+            curl_setopt($curl, CURLOPT_COOKIEFILE, COOKIES_FILE_PATH);
             $imdbLoginForm = curl_exec($curl);
             curl_close($curl);
 
@@ -92,7 +75,7 @@ if (!$error && isset($_POST['films'])) {
                 curl_setopt($curl, CURLOPT_URL, "https://secure.imdb.com/oauth/login?origurl=http://www.imdb.com/&show_imdb_panel=1");
                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-                curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36");
+                curl_setopt($curl, CURLOPT_USERAGENT, USERAGENT);
                 curl_setopt($curl, CURLOPT_AUTOREFERER, true);
                 curl_setopt($curl, CURLOPT_POST, true);
                 curl_setopt($curl, CURLOPT_POSTFIELDS, array(
@@ -100,8 +83,8 @@ if (!$error && isset($_POST['films'])) {
                     'password' => get_option('vkvp_imdb_password'),
                     $hiddenFieldName => $hiddenFieldValue,
                 ));
-                curl_setopt($curl, CURLOPT_COOKIEJAR, __DIR__ . '/cookies.txt');
-                curl_setopt($curl, CURLOPT_COOKIEFILE, __DIR__ . '/cookies.txt');
+                curl_setopt($curl, CURLOPT_COOKIEJAR, COOKIES_FILE_PATH);
+                curl_setopt($curl, CURLOPT_COOKIEFILE, COOKIES_FILE_PATH);
                 $imdbLogin = curl_exec($curl);
                 curl_close($curl);
             }
@@ -147,10 +130,10 @@ if (!$error && isset($_POST['films'])) {
                                 curl_setopt($curl, CURLOPT_URL, "http://www.kinopoisk.ru/index.php?first=yes&kp_query=" . urlencode($film));
                                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                                 curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-                                curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36");
+                                curl_setopt($curl, CURLOPT_USERAGENT, USERAGENT);
                                 curl_setopt($curl, CURLOPT_AUTOREFERER, true);
-                                curl_setopt($curl, CURLOPT_COOKIEJAR, __DIR__ . '/cookies.txt');
-                                curl_setopt($curl, CURLOPT_COOKIEFILE, __DIR__ . '/cookies.txt');
+                                curl_setopt($curl, CURLOPT_COOKIEJAR, COOKIES_FILE_PATH);
+                                curl_setopt($curl, CURLOPT_COOKIEFILE, COOKIES_FILE_PATH);
                                 $kinopoiskFilmPage = curl_exec($curl);
                                 curl_close($curl);
                                 $kinopoiskFilmPage = iconv("CP1251", "UTF-8", $kinopoiskFilmPage);
@@ -182,10 +165,10 @@ if (!$error && isset($_POST['films'])) {
                                     curl_setopt($curl, CURLOPT_URL, $imgSrc);
                                     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                                     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-                                    curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36");
+                                    curl_setopt($curl, CURLOPT_USERAGENT, USERAGENT);
                                     curl_setopt($curl, CURLOPT_AUTOREFERER, true);
-                                    curl_setopt($curl, CURLOPT_COOKIEJAR, __DIR__ . '/cookies.txt');
-                                    curl_setopt($curl, CURLOPT_COOKIEFILE, __DIR__ . '/cookies.txt');
+                                    curl_setopt($curl, CURLOPT_COOKIEJAR, COOKIES_FILE_PATH);
+                                    curl_setopt($curl, CURLOPT_COOKIEFILE, COOKIES_FILE_PATH);
                                     curl_setopt($curl, CURLOPT_FILE, $file);
                                     $image = curl_exec($curl);
                                     curl_close($curl);
@@ -221,10 +204,10 @@ if (!$error && isset($_POST['films'])) {
                                 curl_setopt($curl, CURLOPT_URL, "http://www.imdb.com/find?s=tt&q=" . urlencode($kinopoisk['engName']));
                                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                                 curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-                                curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36");
+                                curl_setopt($curl, CURLOPT_USERAGENT, USERAGENT);
                                 curl_setopt($curl, CURLOPT_AUTOREFERER, true);
-                                curl_setopt($curl, CURLOPT_COOKIEJAR, __DIR__ . '/cookies.txt');
-                                curl_setopt($curl, CURLOPT_COOKIEFILE, __DIR__ . '/cookies.txt');
+                                curl_setopt($curl, CURLOPT_COOKIEJAR, COOKIES_FILE_PATH);
+                                curl_setopt($curl, CURLOPT_COOKIEFILE, COOKIES_FILE_PATH);
                                 $imdbSearchPage = curl_exec($curl);
                                 curl_close($curl);
 
@@ -238,10 +221,10 @@ if (!$error && isset($_POST['films'])) {
                                     curl_setopt($curl, CURLOPT_URL, $imdbFilmUrl);
                                     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                                     curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-                                    curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36");
+                                    curl_setopt($curl, CURLOPT_USERAGENT, USERAGENT);
                                     curl_setopt($curl, CURLOPT_AUTOREFERER, true);
-                                    curl_setopt($curl, CURLOPT_COOKIEJAR, __DIR__ . '/cookies.txt');
-                                    curl_setopt($curl, CURLOPT_COOKIEFILE, __DIR__ . '/cookies.txt');
+                                    curl_setopt($curl, CURLOPT_COOKIEJAR, COOKIES_FILE_PATH);
+                                    curl_setopt($curl, CURLOPT_COOKIEFILE, COOKIES_FILE_PATH);
                                     $imdbFilmPage = curl_exec($curl);
                                     curl_close($curl);
 

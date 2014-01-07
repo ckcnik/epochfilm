@@ -3,6 +3,7 @@
 .htaccess
 
 wp-content/plugins/vk-video-parser/cookies.txt
+wp-content/plugins/vk-video-parser/list.txt
 wp-content/themes/epochfilm/assets/cookies.txt
 
 wp-content/uploads/*
