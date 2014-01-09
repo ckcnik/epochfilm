@@ -146,8 +146,8 @@ if (!$error && isset($_POST['films'])) {
                                 if ($img->length) {
                                     $imgOnclick = $img->attr('onclick');
                                     preg_match('/^.*?\(\'(.*film_big\/(.*))\'\).*$/', $imgOnclick, $match);
-                                    $imgSrc = isset($match[1]) ? $match[1] : '';
-                                    $imgSrc = str_replace('st', 'st-ua', $imgSrc);
+                                    $imgSrc = isset($match[1]) ? 'http://www.kinopoisk.ru' . $match[1] : '';
+//                                    $imgSrc = str_replace('st', 'st-ua', $imgSrc);
                                     $imgFileName = $match[2];
 
                                     $kinopoiskFilmId = explode('.', $imgFileName);
