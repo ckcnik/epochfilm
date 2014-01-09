@@ -11,7 +11,7 @@ $currentPage = $wp_query->get_queried_object_id();
 ?>
 <div class="films-wrapper">
 	<?php if ($currentPage != $mainPageId) : ?>
-	<div class="sub-menu">
+	<div class="sub-menu box-shadow">
 	<ul>
 		<?php
 		if ($currentPage == $filmsPageId) {
@@ -35,7 +35,7 @@ $currentPage = $wp_query->get_queried_object_id();
 		$genreCategories = get_categories( $args )
 		?>
 		<?php foreach ($genreCategories as $catObj):?>
-			<li><a href="<?= get_category_link( $catObj->cat_ID)?>"><?= $catObj->name?> <span><?php echo get_category($catObj->cat_ID)->category_count; ?></span></a></li>
+			<li><span class="glyphicon glyphicon-chevron-right"></span><a href="<?= get_category_link( $catObj->cat_ID)?>"><?= $catObj->name?></a></li>
 		<?php endforeach;?>
 	</ul>
 	</div>

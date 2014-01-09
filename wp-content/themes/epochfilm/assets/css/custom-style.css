@@ -271,37 +271,47 @@ time.year-film {
 .sub-menu {
 	background-color: #e7e7e7;
 	padding: 5px;
-	border-radius: 0 0 15px 15px;
+    border-bottom: solid 1px;
+	/*border-radius: 0 0 15px 15px;*/
 }
 
 .sub-menu ul {
 	list-style: none;
 	padding-left: 0;
 	margin-bottom: 0;
+    text-align: center;
 }
 .sub-menu ul li {
 	display: inline-block;
 	margin-left: 10px;
 	margin-bottom: 3px;
-	border: 1px solid;
+	/*border: 1px solid;*/
 	padding: 0 0 0 10px;
-	width: 190px;
+	width: 150px;
 	border-radius: 10px;
+    text-align: left;
 }
 .sub-menu ul li a {
 	display: block;
 	position: relative;
-	color: white;
+    color: #555;
+}
+
+.sub-menu ul li span.glyphicon {
+    float: left;
+    margin-right: 5px;
+    color: #555;
 }
 
 .sub-menu ul li a span {
 	position: absolute;
 	right: 0;
 	padding: 0 5px;
-	background: green;
+	background: #3b8820;
 	width: 40px;
 	border-radius: 10px;
 	text-align: right;
+    color: white;
 }
 
 .navbar {
@@ -309,7 +319,8 @@ time.year-film {
 }
 
 #menu-primary-navigation li.active a {
-	border-radius: 60px 0;
+	/*border-radius: 60px 0;*/
+    border-radius: 10px 10px 0 0;
 }
 
 /*		фильмы на главной		*/
