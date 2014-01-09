@@ -279,7 +279,7 @@ time.year-film {
 	list-style: none;
 	padding-left: 0;
 	margin-bottom: 0;
-    text-align: center;
+    text-align: left;
 }
 .sub-menu ul li {
 	display: inline-block;
