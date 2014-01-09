@@ -11,31 +11,33 @@ $currentPage = $wp_query->get_queried_object_id();
 ?>
 <div class="films-wrapper">
 	<?php if ($currentPage != $mainPageId) : ?>
-	<div class="sub-menu">
+	<div class="sub-menu box-shadow">
 	<ul>
 		<?php
 		if ($currentPage == $filmsPageId) {
-			$notInCategory = '194,193';
+			$parentCategoryId = '3';
+//			$notInCategory = '194,193';
 		} elseif($currentPage == $cartoonsPageId) {
-			$haveInCategory = '194';
+			$parentCategoryId = '610';
+//			$haveInCategory = '194';
 		}
 
 		$args = array(
 			'type'			=> 'post',
 			'child_of'		=> 0,
-			'parent'		=> '3',
+			'parent'		=> $parentCategoryId,
 			'orderby'		=> 'name',
 			'order'			=> 'ASC',
-			'hide_empty'	=> 1,
+			'hide_empty'	=> 0,
 			'hierarchical'	=> 1,
-			'exclude'		=> isset($notInCategory) ? $notInCategory : '194',
+//			'exclude'		=> isset($notInCategory) ? $notInCategory : '194',
 			'taxonomy'		=> 'category',
 			'pad_counts'	=> false
 		);
 		$genreCategories = get_categories( $args )
 		?>
 		<?php foreach ($genreCategories as $catObj):?>
-			<li><a href="<?= get_category_link( $catObj->cat_ID)?>"><?= $catObj->name?> <span><?php echo get_category($catObj->cat_ID)->category_count; ?></span></a></li>
+			<li><span class="glyphicon glyphicon-chevron-right"></span><a href="<?= get_category_link( $catObj->cat_ID)?>"><?= $catObj->name?></a></li>
 		<?php endforeach;?>
 	</ul>
 	</div>
