@@ -158,7 +158,7 @@ function getMovieList($url, $endPage = 0) {
 			$ruName = trim(preg_replace('/\(видео\)|\(ТВ\)|\(сериал\)/i', '', $ruName));
 			$engNameAndYear = trim(pq($film)->find('div.info .name span')->clone()->children()->remove()->end()->text());
 
-			$filmsData[] = $ruName . ' ' . $engNameAndYear . "\n";
+			$filmsData[] = $ruName . ' / ' . $engNameAndYear . "\n";
 		}
 
 		$file = fopen(__DIR__ . '/list.txt', 'a+');

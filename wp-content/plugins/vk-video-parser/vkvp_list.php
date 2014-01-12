@@ -23,7 +23,7 @@ if (isset($_POST['url']) && $_POST['url']) {
 		<table class="form-table">
 			<tr valign="top">
 				<th scope="row">URL:</th>
-				<td><input style="width: 100%" type="text" name="url" value="http://www.kinopoisk.ru/top/navigator/m_act%5Begenre%5D/21/m_act%5Bnum_vote%5D/10/m_act%5Brating%5D/1:/m_act%5Bis_film%5D/on/m_act%5Bis_mult%5D/on/order/rating/#results"/></td>
+				<td><input style="width: 100%" type="text" name="url" value="http://www.kinopoisk.ru/top/navigator/m_act%5Begenre%5D/20,1747,21,25,999,26/m_act%5Bnum_vote%5D/10/m_act%5Brating%5D/1:/m_act%5Bis_film%5D/on/m_act%5Bis_mult%5D/on/order/rating/#results"/></td>
 			</tr>
 			<tr valign="top">
 				<th scope="row">Количество страниц:</th>
